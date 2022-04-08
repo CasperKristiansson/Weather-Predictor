@@ -1,6 +1,6 @@
 # WeatherBrain
 This is the Git repo for project group 8.
-* [Weatherbrain](http://weatherbrain.azurewebsites.net/)
+* [WeatherBrain](http://weatherbrain.azurewebsites.net/)
 * [Wiki](https://github.com/CasperKristiansson/Weather-Predictor/wiki/)
 
 Our goal is to create an application that can through machine learning predict upcoming weather / weather phenomenons. The application will receive its data from a simulated IoT-device that can measure certain weather parameters such as temperature and atmospheric pressure. 
