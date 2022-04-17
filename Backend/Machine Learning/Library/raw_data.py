@@ -15,24 +15,27 @@ def load_temperature_raw():
 
     :return: Dataframe with temperature data.
     """
-    with open(r'Data\\Raw Data\\Temperature 1756-1858.txt') as f:
+    # with open(r'Data\\Raw Data\\Temperature 1756-1858.txt') as f:
+    #     data = f.readlines()
+    
+    # with open(r'Data\\Raw Data\\Temperature 1859-1960.txt') as f:
+    #     data += f.readlines()
+    
+    # with open(r'Data\\Raw Data\\Temperature 1961-2012.txt') as f:
+    #     data += f.readlines()
+    
+    # with open(r'Data\\Raw Data\\Temperature 2013-2017.txt') as f:
+    #     data += f.readlines()
+
+    with open(r'..\\Data\\Raw Data\\Non-homogenized SLP series in hPa.txt') as f:
         data = f.readlines()
     
-    with open(r'Data\\Raw Data\\Temperature 1859-1960.txt') as f:
+    with open(r'..\\Data\\Raw Data\\2013-2017, hPa, automatic station.txt') as f:
         data += f.readlines()
-    
-    with open(r'Data\\Raw Data\\Temperature 1961-2012.txt') as f:
-        data += f.readlines()
-    
-    with open(r'Data\\Raw Data\\Temperature 2013-2017.txt') as f:
-        data += f.readlines()
-    
-    dataframe = pandas.DataFrame(columns=[
-        'date', 'temperature_one', 'temperature_two',
-        'temperature_three', 'temperature_four', 'temperature_five',
-    ])
 
     data_length = len(data)
+
+    result = []
 
     for data_index, row in enumerate(data):
         row = row.replace('\n', '').split(' ')
@@ -46,21 +49,21 @@ def load_temperature_raw():
         for row_index in range(1, len(row)):
             row[row_index] = float(row[row_index])
 
-        while len(row) < 6:
+        while len(row) < 4:
             row.append(None)
+        
+        data = [[row[0], row[1], row[2], row[3]]]
 
-        dataframe = pandas.concat([
-            dataframe,
-            pandas.DataFrame([
-                [
-                    row[0], row[1], row[2], row[3], row[4], row[5]
-                ]
-            ], columns=[
-                'date', 'temperature_one', 'temperature_two',
-                'temperature_three', 'temperature_four', 'temperature_five'
-            ]),
-        ], ignore_index=True)
-    
-        print(f'{data_index + 1}/{data_length}')
+        result.append(
+            pandas.DataFrame(data, columns=['date', 'hPa_one', 'hPa_two', 'hPa_three'])
+        )
 
-    return dataframe
+        if data_index % 1000 == 0:
+            print(f'{data_index}/{data_length}')
+
+    return pandas.concat(result)
+
+
+if __name__ == '__main__':
+    dataframe = load_temperature_raw()
+    dataframe.to_csv(r'..\\Data\\Raw Data\\hPa.csv', index=False)
