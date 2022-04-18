@@ -17,11 +17,11 @@ def main():
     dataframe = pd.read_csv('..\\Data\\Processed Data\\Combined Cleaned.csv')
 
     #? How should the NaN pascal values be handled? The model will crash if these values exist
-    #? Get average value or just drop the values
+    #? Two Options: Get average value or drop the values
     dataframe = dataframe.dropna()
 
     train_df, val_df, test_df, num_features, column_indices, time_series = tsf.get_train_test_data(dataframe)
-    window = WindowGenerator(input_width=48, label_width=24, shift=24,
+    window = WindowGenerator(input_width=24, label_width=24, shift=24,
                              train_df=train_df, val_df=val_df, test_df=test_df, label_columns=['Temperature'],
                              show_plot=True)
 

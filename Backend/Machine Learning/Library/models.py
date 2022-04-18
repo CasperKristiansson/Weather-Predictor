@@ -1,3 +1,5 @@
+"""https://www.tensorflow.org/tutorials/structured_data/time_series"""
+
 __author__ = "Casper Kristiansson"
 __copyright__ = "WeatherBrain"
 
@@ -28,6 +30,11 @@ def compile_and_fit(model, window, patience=2):
 
 
 def multi_step_last_baseline(window):
+    """
+    https://www.tensorflow.org/tutorials/structured_data/time_series#baselines
+
+    :param window: The window to predict.
+    """
     class MultiStepLastBaseline(tf.keras.Model):
         def call(self, inputs):
             return tf.tile(inputs[:, -1:, :], [1, OUT_STEPS, 1])
@@ -42,6 +49,11 @@ def multi_step_last_baseline(window):
 
 
 def repeat_baseline(window):
+    """
+    https://www.tensorflow.org/tutorials/structured_data/time_series#baselines
+
+    :param window: The window to predict.
+    """
     class RepeatBaseline(tf.keras.Model):
         def call(self, inputs):
             return inputs
@@ -56,6 +68,12 @@ def repeat_baseline(window):
 
 
 def multi_linear(window, num_features):
+    """
+    https://www.tensorflow.org/tutorials/structured_data/time_series#single-shot_models
+
+    :param window: The window to predict.
+    :param num_features: The shape of the input dataframe
+    """
     multi_linear_model = tf.keras.Sequential([
         # Take the last time-step.
         # Shape [batch, time, features] => [batch, 1, features]
@@ -75,6 +93,12 @@ def multi_linear(window, num_features):
 
 
 def multi_dense(window, num_features):
+    """
+    https://www.tensorflow.org/tutorials/structured_data/time_series#single-shot_models
+
+    :param window: The window to predict.
+    :param num_features: The shape of the input dataframe
+    """
     multi_dense_model = tf.keras.Sequential([
         # Take the last time step.
         # Shape [batch, time, features] => [batch, 1, features]
@@ -96,6 +120,12 @@ def multi_dense(window, num_features):
 
 
 def multi_convolutional(window, num_features):
+    """
+    https://www.tensorflow.org/tutorials/structured_data/time_series#single-shot_models
+
+    :param window: The window to predict.
+    :param num_features: The shape of the input dataframe
+    """
     multi_conv_model = tf.keras.Sequential([
         # Shape [batch, time, features] => [batch, CONV_WIDTH, features]
         tf.keras.layers.Lambda(lambda x: x[:, -CONV_WIDTH:, :]),
@@ -116,6 +146,12 @@ def multi_convolutional(window, num_features):
 
 
 def multi_recurrent(window, num_features):
+    """
+    https://www.tensorflow.org/tutorials/structured_data/time_series#single-shot_models
+
+    :param window: The window to predict.
+    :param num_features: The shape of the input dataframe
+    """
     multi_lstm_model = tf.keras.Sequential([
         # Shape [batch, time, features] => [batch, lstm_units].
         # Adding more `lstm_units` just overfits more quickly.
@@ -135,6 +171,12 @@ def multi_recurrent(window, num_features):
 
 
 def auto_regression(window, num_features):
+    """
+    https://www.tensorflow.org/tutorials/structured_data/time_series#advanced_autoregressive_model
+
+    :param window: The window to predict.
+    :param num_features: The shape of the input dataframe
+    """
     class FeedBack(tf.keras.Model):
         def __init__(self, units, out_steps, num_features):
             super().__init__()
