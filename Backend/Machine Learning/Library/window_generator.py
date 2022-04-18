@@ -12,7 +12,8 @@ import matplotlib.pyplot as plt
 
 class WindowGenerator():
     def __init__(self, input_width, label_width, shift,
-                 train_df, val_df, test_df, label_columns=None):
+                 train_df, val_df, test_df, label_columns=None,
+                 show_plot=False):
         """
         This class generates windows of data for training and testing.
         It's one of the main classes for the Multi-step model.
@@ -26,6 +27,7 @@ class WindowGenerator():
         :param val_df: The validation dataframe.
         :param test_df: The test dataframe.
         :param label_columns: The label columns, the desired result to predict.
+        :param show_plot: Whether to show the plot of the window.
         """
         # Store the raw data.
         self.train_df = train_df
@@ -53,6 +55,8 @@ class WindowGenerator():
         self.label_start = self.total_window_size - self.label_width
         self.labels_slice = slice(self.label_start, None)
         self.label_indices = np.arange(self.total_window_size)[self.labels_slice]
+
+        self.show_plot = show_plot
 
     def __repr__(self):
         return '\n'.join([
@@ -108,7 +112,10 @@ class WindowGenerator():
             if n == 0:
                 plt.legend()
 
-        plt.xlabel('Time [h]')
+        plt.xlabel('Time [h / days?]')
+        
+        if self.show_plot:
+            plt.show()
 
     def make_dataset(self, data):
         data = np.array(data, dtype=np.float32)
@@ -148,3 +155,25 @@ class WindowGenerator():
             # And cache it for next time
             self._example = result
         return result
+
+
+def plot_empty(window):
+    """This method simply plots the training window.
+    This is mostly a testing method. Will require @property
+    example method to be temporarily removed. 
+
+    :param window: The window to plot.
+    """
+    example_window = tf.stack([np.array(window.train_df[:window.total_window_size]),
+                            np.array(window.train_df[100:100+window.total_window_size]),
+                            np.array(window.train_df[200:200+window.total_window_size])])
+
+    example_inputs, example_labels = window.split_window(example_window)
+    print('All shapes are: (batch, time, features)')
+    print(f'Window shape: {example_window.shape}')
+    print(f'Inputs shape: {example_inputs.shape}')
+    print(f'Labels shape: {example_labels.shape}')
+
+    window.example = example_inputs, example_labels
+
+    window.plot()
