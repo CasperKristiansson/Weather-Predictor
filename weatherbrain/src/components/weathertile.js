@@ -1,12 +1,12 @@
 import '../styling/components/weathertile.css';
 
-export const WeatherTile = () => {
+export const WeatherTile = (props) => {
     return (
         <div class="tilediv">
 
             <div class="content-holder">
                 <div class="date">
-                    Thur 28/4
+                    {props.date}
                 </div>
 
                 <div>
