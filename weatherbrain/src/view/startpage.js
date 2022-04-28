@@ -1,4 +1,5 @@
 import { WeatherTile } from "../components/weathertile";
+import '../styling/pages/startpage.css'
 
 
 export const Startpage = () => {
@@ -8,6 +9,7 @@ export const Startpage = () => {
             <h1>WeatherBrain</h1>
             <p>A simple weather app</p>
             <WeatherTile/>
+            
 
         </>
     );

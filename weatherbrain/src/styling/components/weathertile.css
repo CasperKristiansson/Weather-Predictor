@@ -1,6 +1,6 @@
 
 .tilediv{
-    background-image: linear-gradient(to bottom right, rgb(0, 23, 226), rgb(0, 153, 255));
+    background-image: linear-gradient(to bottom right, rgb(81, 98, 255), rgb(0, 153, 255));
     width: 120px;
     height: 130px;
     border-radius: 25px;
@@ -13,7 +13,7 @@
 
 
 .material-symbols-outlined {
-    color: #fff;
+    color: #ffee00;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
@@ -23,7 +23,7 @@
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    background-color: #ff9800;
+    
     margin: 0 0.5rem;
     position: relative;
     top: -0.1rem;
