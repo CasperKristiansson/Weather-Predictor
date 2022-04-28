@@ -7,9 +7,11 @@ export const Startpage = () => {
     
     return (
         <>
-        
-            <h1>WeatherBrain</h1>
-            
+        <div>
+            <h1>Weather Brain</h1>
+            <h2>Predicting weather with state of the art Macheine Learning </h2>
+
+        </div>
 
             <Weathertileholder />
 
