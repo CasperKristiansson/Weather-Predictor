@@ -6,6 +6,10 @@ import java.util.*;
 public class DatabaseDAO {
     private Connection connection;
 
+    private static final String WEATHER_DATA_TABLE_NAME = "smhiData";
+    
+
+
     public DatabaseDAO(){
         try{
             connectToDB();
@@ -26,8 +30,12 @@ public class DatabaseDAO {
         this.connection.close();
     }
 
+    private void insertWeatherData(String[] date, String[] time, int[] tempereture, int[] airPressure){
+
+    }
+
     private void prepareStatements() throws SQLException{
-        
+        PreparedStatement getAll = connection.prepareStatement("SELECT * FROM ?");
     }
 
     public void insertWeatherData(){
