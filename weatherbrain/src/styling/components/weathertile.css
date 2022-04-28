@@ -1,0 +1,30 @@
+
+.tilediv{
+    background-image: linear-gradient(to bottom right, rgb(0, 23, 226), rgb(0, 153, 255));
+    width: 120px;
+    height: 130px;
+    border-radius: 25px;
+}
+
+.content-holder{
+    margin: 25px;
+    height: 110px;
+}
+
+
+.material-symbols-outlined {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #ff9800;
+    margin: 0 0.5rem;
+    position: relative;
+    top: -0.1rem;
+}
