@@ -1,7 +1,6 @@
-package main;
+package controller;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -12,8 +11,8 @@ public class Database {
     Connection connection = null;
     String connectionString;
 
-    Database() throws IOException {
-        InputStream input = new FileInputStream("src\\main\\databaseCredentials.properties");
+    public Database() throws IOException {
+        InputStream input = new FileInputStream("src/credentials/databaseCredentials.properties");
         Properties prop = new Properties();
         prop.load(input);
 

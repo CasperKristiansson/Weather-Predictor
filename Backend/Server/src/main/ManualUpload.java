@@ -1,5 +1,5 @@
 package main;
-import main.Database;
+import controller.Database;
 
 public class ManualUpload {
     public static void main(String[] args) throws Exception {
