@@ -13,7 +13,7 @@ export const CurrentWeatherTile = () => {
                 {today.getUTCFullYear() + '-' +today.getMonth()+'-'+today.getDate()+' '+today.getHours()+':'+today.getMinutes()}
                 </div>
 
-                <div class="TA BORT DENNA KLASS 2">
+                <div class="TA BORT DENNA KLASS 3">
                     <div class="icon-holder-current">
                         <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
                         <span class="material-symbols-outlined">
