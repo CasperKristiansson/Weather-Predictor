@@ -21,9 +21,7 @@ const Navbar = () =>{
                 </ul>
 
             </div>
-            <div class="right">
-                <a href="#">Bye</a>
-            </div>
+
 
         </header>
     );
