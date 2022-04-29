@@ -1,0 +1,48 @@
+
+.tilediv-current{
+    background-image: linear-gradient(to bottom right, rgb(2, 48, 71), rgba(33, 158, 188));
+    width: 300px;
+    height: 200px;
+    border-radius: 25px;
+    box-shadow: -10px 10px 10px rgb(51, 51, 51) ;
+    
+}
+
+.content-holder-current{
+    margin: 25px;
+    height: 110px;
+    align-self: center;
+}
+
+.date-current {
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 30px;
+    text-align: center;
+    color:aliceblue;
+    padding-bottom: 20px;
+}
+
+.icon-holder-current{
+    float:left;
+    font-size: 20px;
+}
+
+.icon-holder-current span {
+    font-size: 100px !important;
+}
+
+.temperature-holder-current{
+    color:aliceblue;
+    float:left;
+    font-size: 20px;
+    padding-top: 7px;
+
+}
+
+.material-symbols-outlined {
+    color: #ffb703;
+    text-align: left;
+    padding-right: 8px;
+    font-weight: 800 !important;
+}
