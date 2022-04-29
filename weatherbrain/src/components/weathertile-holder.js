@@ -25,14 +25,3 @@ export const Weathertileholder = () => {
         </div>
     );
 }
-
-/*
-
-            
-            <WeatherTile/>
-            <WeatherTile/>
-            <WeatherTile/>
-            <WeatherTile/>
-            <WeatherTile/>
-            
-*/
