@@ -1,21 +1,25 @@
 import { WeatherTile } from "../components/weathertile";
-import Navbar from '../components/navbar';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import About from '../pages/about';
-import Events from '../pages/events';
-import React from "react";
+import { Weathertileholder } from "../components/weathertile-holder";
+import '../styling/pages/startpage.css'
+
 
 export const Startpage = () => {
+    
     return (
         <>
-            <Router>
-                <Navbar />
-                <Routes>
-                    <Route path='/*' element={<WeatherTile/>}/>
-                    <Route path='/about' element={<About/>} />
-                    <Route path='/events' element={<Events/>} />
-                </Routes>
-            </Router>
+        <div>
+            <div class="animation">
+                <h1>Weather Brain</h1>
+            </div>
+            
+            <h2>Predicting weather with state of the art Macheine Learning </h2>
+
+        </div>
+
+            <Weathertileholder />
+            
+            
+
         </>
-    )
+    );
 }
