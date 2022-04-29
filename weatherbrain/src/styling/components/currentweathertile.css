@@ -2,5 +2,7 @@
 
 .container {
     border: 1px;
-    
+    border-color: antiquewhite;
+    height: 500px;
+    width: 500px;
 }
