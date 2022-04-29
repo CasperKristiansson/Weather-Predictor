@@ -23,9 +23,9 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install --prefix weatherbrain
-          npm run build --prefix weatherbrain --if-present 
-          npm run test --prefix weatherbrain --if-present 
+          npm install --prefix weatherbrain/
+          npm run build --prefix weatherbrain/ --if-present 
+          npm run test --prefix weatherbrain/ --if-present 
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
