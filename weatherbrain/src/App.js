@@ -1,12 +1,13 @@
 import './App.css';
 import {Startpage} from  './view/startpage.js';
+import {Aboutpage} from  './view/aboutpage.js';
 
 
 function App() {
   return (
     <div>
 
-      <Startpage />
+      <Aboutpage />
 
     </div>
   );
