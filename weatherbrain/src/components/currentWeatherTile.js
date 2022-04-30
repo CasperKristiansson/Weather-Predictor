@@ -28,7 +28,7 @@ export const CurrentWeatherTile = () => {
                             <style>
                             @import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@584&display=swap');
                             </style>    
-                            <p>Today it's sunny with low probabillity for rain. <span>&#128525</span> </p>
+                            <p>Today it's sunny with low probabillity for rain. </p>
                         </div>
                     </div>
                 </div>
