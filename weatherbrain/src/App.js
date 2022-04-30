@@ -3,7 +3,6 @@ import Navbar from './components/navbar';
 import {Startpage} from  './view/startpage.js';
 import {Aboutpage} from  './view/aboutpage.js';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import About from "./pages/about";
 import Events from "./pages/events";
 import React from "react";
 
