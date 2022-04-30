@@ -1,5 +1,5 @@
 
-import { CurrentWeatherTile } from "../components/currentWeatherTile";
+import { CurrentWeatherTileHolder } from "../components/currentWeatherTileHolder";
 import { Weathertileholder } from "../components/weathertile-holder";
 import '../styling/pages/startpage.css'
 
@@ -16,6 +16,7 @@ export const Startpage = () => {
             <h2>Predicting weather with state of the art Macheine Learning </h2>
 
         </div>
+            <CurrentWeatherTileHolder/>
             <Weathertileholder />
 
         </>

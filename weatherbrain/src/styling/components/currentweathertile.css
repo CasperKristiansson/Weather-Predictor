@@ -1,7 +1,7 @@
 
 .tilediv-current{
     background-image: linear-gradient(to bottom right, rgb(2, 48, 71), rgba(33, 158, 188));
-    width: 300px;
+    width: 320px;
     height: 200px;
     border-radius: 25px;
     box-shadow: -10px 10px 10px rgb(51, 51, 51) ;
@@ -45,4 +45,15 @@
     text-align: left;
     padding-right: 8px;
     font-weight: 800 !important;
+}
+
+.temp-textfield-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.temp-textfield-container p {
+    color: aliceblue;
+    font-family: 'Radio Canada', sans-serif;
+    
 }
