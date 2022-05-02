@@ -24,31 +24,42 @@ export const Aboutpage = () => {
             </div>
             <h2>Team</h2>
             <div className="teamContainer">
-                
-                <img alt="leader" src={leadership}/>
-                <p>
-                    <b>Team leader:</b> Casper Kristiansson
-                </p>
-                <img alt="Stakholder" src={team}/>
-                <p>
-                    <b>Stakeholder representation:</b> Ville Vik
-                </p>
-                <img alt="Developement" src={developer}/>
-                <p>
-                    <b>Developement:</b> Fredrik Lundström
-                </p>
-                <img alt="Testing" src={testing}/>
-                <p>
-                    <b>Testing:</b> Philip Hägg
-                </p>
-                <img alt="Architect" src={architect}/>
-                <p>
-                    <b>Architect:</b> Fredrik Janetzky
-                </p>
-                <img alt="Sustainable" src={sustainable}/>
-                <p>
-                    <b>Sustainability:</b> Daniel Chouster
-                </p>
+                <div className='leader'>
+                    <img alt="leader" src={leadership}/>
+                    <p>
+                        <b>Team leader:</b><br/> Casper Kristiansson
+                    </p>
+                </div>
+                <div className='stakholder'>
+                    <img alt="Stakeholder" src={team}/>
+                    <p>
+                        <b>Stakeholder rep:</b><br/> Ville Vik
+                    </p>
+                </div>
+                <div className='developer'>
+                    <img alt="Developement" src={developer}/>
+                    <p>
+                        <b>Developement:</b><br/> Fredrik Lundström
+                    </p>
+                </div>
+                <div className='tester'>
+                    <img alt="Testing" src={testing}/>
+                    <p>
+                        <b>Testing:</b><br/> Philip Hägg
+                    </p>
+                </div>
+                <div className='architect'>
+                    <img alt="Architect" src={architect}/>
+                    <p>
+                        <b>Architect:</b><br/> Fredrik Janetzky
+                    </p>
+                </div>
+                <div className='sustainability'>
+                    <img alt="Sustainable" src={sustainable}/>
+                    <p>
+                        <b>Sustainability:</b><br/> Daniel Chouster
+                    </p>
+                </div>
             </div>
         </>
     );
