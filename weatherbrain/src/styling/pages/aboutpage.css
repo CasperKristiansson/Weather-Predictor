@@ -49,18 +49,26 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
-    margin: 0 auto 30px;
-    width: 80%;
+    margin: 0 auto 10px 37%;
     height: 100%;
 }
 .teamContainer p{
+    grid-area: name;
     margin: 0 0 10px;
     padding: 0;
     font-size: 30px;
 }
 .teamContainer img{
+    grid-area:img;
     width: 80px;
     height: auto;
+    float: left;
+    padding-right: 10px;
+}
+.teamContainer div{
+    display:grid;
+    grid-template-areas: 'img name';
+    margin-bottom: 20px;
 }
