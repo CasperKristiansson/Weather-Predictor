@@ -4,16 +4,8 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 
-import java.io.File;
-import java.util.Scanner;
-
 public class DatabaseDAO {
     private Connection connection;
-
-    private static final String WEATHER_DATA_TABLE_NAME = "smhiData";
-    private static final String WEATHER_DATA_DATE_COLUMN_NAME = "date";
-    private static final String WEATHER_DATA_TEMPERATURE_COLUMN_NAME = "temperature";
-    private static final String WEATHER_DATA_AIR_PRESSURE_COLUMN_NAME = "airPressure";
 
     public DatabaseDAO() {
         try {
@@ -34,20 +26,9 @@ public class DatabaseDAO {
         System.out.println("Connected to database");
     }
 
-    public void insertWeatherData() {
-        File file = new File("src/data/smhi_data.txt");
-        try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                PreparedStatement query = connection.prepareStatement(scanner.nextLine());
-                query.executeUpdate();
-                connection.commit();
-            }
-            System.out.println("DONE");
-            scanner.close();
-        } catch (FileNotFoundException | SQLException e) {
-            System.out.println("Error:  " + e.getMessage());
-        }
+    public void closeConnection() throws SQLException {
+        this.connection.close();
+        System.out.println("Disconnected from database");
     }
 
     private void prepareStatements() throws SQLException {
