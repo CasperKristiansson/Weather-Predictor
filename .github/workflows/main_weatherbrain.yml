@@ -23,10 +23,11 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          cd weatherbrain
+          #cd weatherbrain
           npm install 
           npm run build --if-present 
           #npm run test --if-present 
+        working-directory: Weather-Predictor/weatherbrain/
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
