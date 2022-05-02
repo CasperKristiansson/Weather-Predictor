@@ -18,6 +18,7 @@ const Navbar = () =>{
                     <Link to="/">Home again</Link>
                 </li>
         </div>
+
     );
 }
 export default Navbar;
