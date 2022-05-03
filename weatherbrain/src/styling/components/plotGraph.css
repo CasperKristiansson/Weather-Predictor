@@ -1,0 +1,14 @@
+.graphContainer {
+    /* background-color: rgb(207, 44, 44); */
+    width: 80%;
+    height: 10%;
+    text-align: center;
+    padding-left: 20%;
+    padding-top: 3%;
+}
+
+.theGraph {
+    /* background-color: rgb(207, 44, 44); */
+    width: 80%;
+    height: 80%;
+}
