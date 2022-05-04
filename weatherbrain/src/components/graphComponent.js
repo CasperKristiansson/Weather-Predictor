@@ -49,21 +49,17 @@ export const PlotGraph = () => {
           bottom: 5,
         }}
       >
-        <YAxis label={{ value: '°C', fill: 'rgb(129, 106, 235)', angle: 0, position: 'insideLeft' }} />
+        <YAxis label={{ value: '°C', fill: 'rgb(129, 106, 235)', position: 'insideLeft' }} />
 
         <Bar dataKey="temperature">
-          <LabelList dataKey="name" position="insideTopLeft" />
+          <LabelList dataKey="name" />
         </Bar>
-
-        {/* <YAxis label={{ value: "Temperature (°C)", dy: 10, angle: -90,  }} /> */}
-
-        {/* <XAxis dataKey="name" label={{ value: "Day of week", position: "insideBottomLeft", dy: 10}} /> */}
 
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
           dataKey="name"
         />
-        <YAxis name="Temperature (°C)" />
+        <YAxis />
         <Tooltip />
         <Legend />
 

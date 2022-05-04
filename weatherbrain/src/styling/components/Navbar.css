@@ -26,17 +26,10 @@
 }
 
 .navbar li a:hover{
-    color: rgb(75, 7, 247);
-    border: #53008b;
-    border-radius: 2px;
-    font-size: 20px;
+    color: rgb(75, 7, 247); 
 }
 
 .navbar li a:active{
     background-color: #285b6c;
     border-radius: 5px;
-}
-.right{
-    float: right;
-    text-align: right;
 }
