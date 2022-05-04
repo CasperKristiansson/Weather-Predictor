@@ -1,5 +1,4 @@
 .graphContainer {
-    /* background-color: rgb(207, 44, 44); */
     width: 80%;
     height: 10%;
     text-align: center;
@@ -8,7 +7,9 @@
 }
 
 .theGraph {
-    /* background-color: rgb(207, 44, 44); */
     width: 80%;
     height: 80%;
+    font: normal normal 900 17px/12px Avenir;
+    letter-spacing: -0.29px;
+
 }
