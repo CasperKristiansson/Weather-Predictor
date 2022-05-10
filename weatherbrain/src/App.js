@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/navbar';
+import {Startpage} from  './view/startpage.js';
+import {Aboutpage} from  './view/aboutpage.js';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Events from "./pages/events";
+import React from "react";
+import ContactForm from "./view/contactUs";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      HEJ HEJ TEST TEST
+    <div>
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path='/*' element={<Startpage/>}/>
+                <Route path='/about' element={<Aboutpage />} />
+                <Route path='/events' element={<Events/>} />
+                <Route path='/contactus' element={<ContactForm/>} />
+            </Routes>
+        </Router>
     </div>
   );
 }

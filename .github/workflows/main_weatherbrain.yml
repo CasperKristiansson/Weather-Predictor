@@ -17,24 +17,23 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set up Node.js version
-      - working-directory: ./weatherbrain
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
 
       - name: npm install, build, and test
-      - working-directory: ./weatherbrain
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+          #cd weatherbrain
+          npm install 
+          npm run build --if-present 
+          #npm run test --if-present 
+        working-directory: weatherbrain
       
       - name: Upload artifact for deployment job
-      - working-directory: ./weatherbrain
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: ./weatherbrain/build
 
   deploy:
     runs-on: ubuntu-latest
@@ -55,5 +54,5 @@ jobs:
         with:
           app-name: 'weatherbrain'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FE076E71ECFC48BF8E0DE65D38CE3FD2 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B6CC2BB828A34EDF816EBA88C07C577D }}
           package: .

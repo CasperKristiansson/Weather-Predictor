@@ -1,0 +1,15 @@
+.graphContainer {
+    width: 80%;
+    height: 10%;
+    text-align: center;
+    padding-left: 20%;
+    padding-top: 3%;
+}
+
+.theGraph {
+    width: 80%;
+    height: 80%;
+    font: normal normal 900 17px/12px Avenir;
+    letter-spacing: -0.29px;
+
+}
