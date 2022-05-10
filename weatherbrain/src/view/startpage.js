@@ -1,4 +1,3 @@
-
 import { CurrentWeatherTileHolder } from "../components/currentWeatherTileHolder";
 import { Weathertileholder } from "../components/weathertile-holder";
 import { Graph } from "../components/plotGraph";

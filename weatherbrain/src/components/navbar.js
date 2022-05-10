@@ -9,10 +9,13 @@ const Navbar = () =>{
                     <Link to="/">StartPage</Link>
                 </li>
                     <li>
-                        <Link to="/about">About</Link>
+                        <Link to="/about">About us</Link>
                     </li>
                     <li>
                         <Link to="/events">Events</Link>
+                    </li>
+                    <li>
+                        <Link to="/contactus">Contact us</Link>
                     </li>
                 <li>
                     <Link to="/">Home again</Link>

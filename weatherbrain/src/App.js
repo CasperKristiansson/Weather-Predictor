@@ -5,6 +5,7 @@ import {Aboutpage} from  './view/aboutpage.js';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Events from "./pages/events";
 import React from "react";
+import ContactForm from "./view/contactUs";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path='/*' element={<Startpage/>}/>
                 <Route path='/about' element={<Aboutpage />} />
                 <Route path='/events' element={<Events/>} />
+                <Route path='/contactus' element={<ContactForm/>} />
             </Routes>
         </Router>
     </div>
