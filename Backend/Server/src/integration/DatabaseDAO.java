@@ -4,8 +4,14 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 
+import model.Day;
+
 public class DatabaseDAO {
     private Connection connection;
+    private String SMHI_TABLE_NAME = "smhi_data";
+
+    private PreparedStatement get7DaysAhead;
+    private PreparedStatement getCurrent;
 
     public DatabaseDAO() {
         try {
@@ -31,7 +37,54 @@ public class DatabaseDAO {
         System.out.println("Disconnected from database");
     }
 
+    /**
+     * Return weather 7 days ahead from the current date
+     * @return
+     * @throws SQLException
+     */
+    public List<Day> get7DaysAhead() throws SQLException {
+        List<Day> days = new ArrayList<>();
+        get7DaysAhead.setString(1, SMHI_TABLE_NAME);
+        get7DaysAhead.setString(2, new Timestamp(System.currentTimeMillis()).toString());
+        ResultSet resultSet = get7DaysAhead.executeQuery();
+        while(resultSet.next()){
+            days.add(new Day(
+                resultSet.getString("date"), 
+                resultSet.getString("time"), 
+                resultSet.getFloat("temperature"), 
+                resultSet.getFloat("airPressure")
+            ));
+        }
+        return days;
+    }
+
+    /**
+     * @return the current weather
+     * @return
+     * @throws SQLException
+     */
+    public Day getCurrentWeather() throws SQLException{
+        Day day = null;
+        ResultSet resultSet = getCurrent.executeQuery();
+        if(resultSet.next()){
+            day = new Day(
+                resultSet.getString("date"),
+                resultSet.getString("time"),
+                resultSet.getFloat("temperature"),
+                resultSet.getFloat("airPressure"));
+        }
+        return day;
+    }
+
     private void prepareStatements() throws SQLException {
-        PreparedStatement getAll = connection.prepareStatement("SELECT * FROM ?");
+        get7DaysAhead = connection.prepareStatement("SELECT * FROM ? WHERE date >= ?");
+        getCurrent = connection.prepareStatement("SELECT * from [dbo].[smhiData] WHERE date=(SELECT MAX(date) from [dbo].[smhiData]) and time=(SELECT MAX(time) from [dbo].[smhiData] where date = (SELECT MAX(date) from [dbo].[smhiData]))");
+    }
+
+
+
+
+    public Day getWeather(){
+        return null;
     }
 }

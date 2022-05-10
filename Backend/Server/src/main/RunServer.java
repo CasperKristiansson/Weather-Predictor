@@ -1,7 +1,6 @@
 package main;
 
 import java.net.*;
-
 import main.runnable.ClientHandler;
 
 public class RunServer {

@@ -23,6 +23,8 @@ public class ClientHandler {
             // Read data from client
             String clientData = dataInputStream.readUTF();
             System.out.println("Client data: " + clientData);
+
+            
             
             // Write data to client
             dataOutputStream.writeUTF("Hello client");
