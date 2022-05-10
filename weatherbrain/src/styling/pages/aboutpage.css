@@ -6,7 +6,7 @@ html {
 body {
     min-height: 100%;
     min-width: 100%;
-    background-image: linear-gradient(to bottom left, rgb(142, 202, 230), rgba(2, 48, 71));
+    background-image: linear-gradient(to bottom left, rgb(201, 234, 250), rgb(0, 66, 99));
     background-attachment: fixed;
 }
 
@@ -46,12 +46,10 @@ h2 {
 }
 
 .teamContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin: 0 auto 10px 37%;
+    display: grid;
+    grid-template-areas: 'l s' 'd t' 'a sus';
+    width: 80%;
+    margin: auto;
     height: 100%;
 }
 .teamContainer p{
@@ -71,4 +69,5 @@ h2 {
     display:grid;
     grid-template-areas: 'img name';
     margin-bottom: 20px;
+    width: max-content;
 }
