@@ -1,3 +1,5 @@
+/* Philip Hägg*/
+
 import '../styling/pages/randomTestPage.css';
 
 export const RandomTestPage = () => {
