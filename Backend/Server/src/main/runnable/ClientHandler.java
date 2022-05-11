@@ -42,7 +42,7 @@ public class ClientHandler extends Thread {
                 String url = GETLineArray[1];
                 String[] urlArray = url.split("\\?");
 
-                if (!urlArray[0].equals("/weather") || urlArray.length == 0) {
+                if (!urlArray[0].equals("/current_weather") || urlArray.length == 0) {
                     throw new Exception("HTTP/1.1 404 Not Found");
                 }
                 //if (urlArray.length < 2) {
@@ -54,15 +54,14 @@ public class ClientHandler extends Thread {
 
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("date", day.getDate());
-                jsonObject.put("time", day.getTime());
                 jsonObject.put("temperature", day.getTemperature());
                 jsonObject.put("airPressure", day.getAirPressure());
+                jsonObject.put("humidity", day.getHumidity());
                 // Write data to client
                 System.out.println(jsonObject.toString());
                 outputStreamWriter.write("HTTP/1.1 200 OK \r\n\r\n");
                 outputStreamWriter.write(jsonObject.toString());
                 outputStreamWriter.flush();
-
             } catch (Exception e) {
                 outputStreamWriter.write(e.getMessage());
                 outputStreamWriter.flush();
