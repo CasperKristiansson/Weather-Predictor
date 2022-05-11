@@ -15,7 +15,7 @@ public class Controller {
         try{
             day = this.databaseDAO.getCurrentWeather();
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("Controller ERROR: " + e.getMessage());
         }
         return day;
     }
