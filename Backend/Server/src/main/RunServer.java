@@ -5,21 +5,21 @@ import main.runnable.ClientHandler;
 
 public class RunServer {
     public static void main(String[] args) {
-        try(ServerSocket serverSocket = new ServerSocket(80);){
+        try(ServerSocket serverSocket = new ServerSocket(8080);){
             System.out.println("Server started");
             while(true){
                 try{
                     Socket clientSocket = serverSocket.accept();
                     System.out.println("Client connected");
                     ClientHandler clientHandler = new ClientHandler(clientSocket);
-                    clientHandler.run();
+                    clientHandler.start();
                 }catch(SocketException e){
                     System.out.println("Server stopped");
                     break;
                 }
             }
         }catch(Exception e){
-            System.out.println("ERROR:  " + e.getMessage());
+            System.out.println("RunServer ERROR:  " + e.getMessage());
             System.out.println("Server is already running");
         }
     }
