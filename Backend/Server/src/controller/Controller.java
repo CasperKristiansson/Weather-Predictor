@@ -10,11 +10,18 @@ public class Controller {
         this.databaseDAO = new DatabaseDAO();
     }
 
-    public void getCurrentWeather(){
-
+    public Day getCurrentWeather(){
+        Day day = null;
+        try{
+            day = this.databaseDAO.getCurrentWeather();
+        }catch(Exception e){
+            System.out.println("Controller ERROR: " + e.getMessage());
+        }
+        return day;
     }
 
     public Day getTodayWeather(){
+        
         return null;
     }
 }
