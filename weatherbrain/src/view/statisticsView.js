@@ -1,4 +1,4 @@
-import '../styling/pages/detailedView.css';
+import '../styling/pages/statisticsView.css';
 //import { Graph } from "../components/plotGraph";
 
 //Average
@@ -17,7 +17,7 @@ let nameOfMonth = month[currentDate.getMonth()];
 var weekNumber = Math.ceil((currentDate.getDay() + 1 + days) / 7);
 let year = startDate.getYear() + 1900;
 
-export const DetailedView = () => {
+export const StatisticsView = () => {
     return (
         <>
             <div className="statHeader">
