@@ -2,15 +2,15 @@ package model;
 
 public class Day {
     private String date;
-    private String time;
     private float temperature;
-    private float airPressure;
+    private float air_pressure;
+    private int humidity;
 
-    public Day(String date, String time, float temperature, float airPressure){
+    public Day(String date, float temperature, float air_pressure, int humidity) {
         this.date = date;
-        this.time = time;
         this.temperature = temperature;
-        this.airPressure = airPressure;
+        this.air_pressure = air_pressure;
+        this.humidity = humidity;
     }
 
     /*GETTERS*/
@@ -19,14 +19,6 @@ public class Day {
      */
     public String getDate() {
         return date;
-    }
-
-    /**
-     * 
-     * @return the time
-     */
-    public String getTime() {
-        return time;
     }
 
     /**
@@ -42,7 +34,15 @@ public class Day {
      * @return the airPressure
      */
     public float getAirPressure() {
-        return airPressure;
+        return air_pressure;
+    }
+
+    /**
+     * 
+     * @return the humidity
+     */
+    public int getHumidity() {
+        return humidity;
     }
 
     /*SETTERS*/
@@ -51,14 +51,6 @@ public class Day {
      */
     public void setDate(String date) {
         this.date = date;
-    }
-
-    /**
-     * 
-     * @param time the time to set
-     */
-    public void setTime(String time) {
-        this.time = time;
     }
 
     /**
@@ -73,7 +65,15 @@ public class Day {
      * 
      * @param airPressure the airPressure to set
      */
-    public void setAirPressure(float airPressure) {
-        this.airPressure = airPressure;
+    public void setAirPressure(float air_pressure) {
+        this.air_pressure = air_pressure;
+    }
+
+    /**
+     * 
+     * @param humidity the humidity to set
+     */
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
     }
 }
