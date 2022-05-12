@@ -1,6 +1,6 @@
 import '../styling/components/weathertile.css';
 
-export const WeatherTile = (props) => {
+function WeatherTile  (props)  {
     return (
         <div class="tilediv">
 
@@ -25,4 +25,4 @@ export const WeatherTile = (props) => {
         
     );
 }
-
+export default WeatherTile;

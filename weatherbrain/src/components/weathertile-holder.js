@@ -1,4 +1,4 @@
-import { WeatherTile } from "./weathertile";
+import  WeatherTile from "./weathertile";
 import '../styling/components/weathertile-holder.css';
 
 

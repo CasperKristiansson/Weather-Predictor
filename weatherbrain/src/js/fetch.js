@@ -8,7 +8,11 @@ const weatherSource = {
         return fetch(SEVEN_DAY_PREDICTION + params.query)
         .then(response => { response.json()
         });
+    },
+    getGraphData(params){
+        return fetch(GRAPH_DATA + params.query)
+        .then(response => { response.json()
+        });
     }
-    
     
 };
