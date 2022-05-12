@@ -3,13 +3,13 @@ package model;
 public class Day {
     private String date;
     private float temperature;
-    private float airPressure;
-    private float humidity;
+    private float air_pressure;
+    private int humidity;
 
-    public Day(String date, float temperature, float airPressure, float humidity){
+    public Day(String date, float temperature, float air_pressure, int humidity) {
         this.date = date;
         this.temperature = temperature;
-        this.airPressure = airPressure;
+        this.air_pressure = air_pressure;
         this.humidity = humidity;
     }
 
@@ -34,14 +34,14 @@ public class Day {
      * @return the airPressure
      */
     public float getAirPressure() {
-        return airPressure;
+        return air_pressure;
     }
 
     /**
      * 
      * @return the humidity
-    */  
-    public float getHumidity() {
+     */
+    public int getHumidity() {
         return humidity;
     }
 
@@ -52,7 +52,7 @@ public class Day {
     public void setDate(String date) {
         this.date = date;
     }
-    
+  
     /**
      * 
      * @param temperature the temperature to set
@@ -60,25 +60,25 @@ public class Day {
     public void setTemperature(float temperature) {
         this.temperature = temperature;
     }
-
     /**
      * 
      * @param airPressure the airPressure to set
      */
-    public void setAirPressure(float airPressure) {
-        this.airPressure = airPressure;
+    public void setAirPressure(float air_pressure) {
+        this.air_pressure = air_pressure;
     }
 
     /**
      * 
      * @param humidity the humidity to set
-    */
-    public void setHumidity(float humidity) {
+     */
+    public void setHumidity(int humidity) {
         this.humidity = humidity;
     }
 
+
     @Override
     public String toString() {
-        return "Day [date=" + date + ", temperature=" + temperature + ", airPressure=" + airPressure + ", humidity=" + humidity + "]";
+        return "Day [date=" + date + ", temperature=" + temperature + ", airPressure=" + air_pressure + ", humidity=" + humidity + "]";
     }
 }

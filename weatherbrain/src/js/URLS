@@ -1,0 +1,3 @@
+const CURRENT_WEATHER = "http://40.113.6.64/current_weather";
+const SEVEN_DAY_PREDICTION = "http://40.113.6.64/forecast";
+const GRAPH_DATA = "";

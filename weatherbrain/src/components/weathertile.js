@@ -1,6 +1,6 @@
 import '../styling/components/weathertile.css';
 
-export const WeatherTile = (props) => {
+function WeatherTile  (props)  {
     return (
         <div class="tilediv">
 
@@ -17,7 +17,7 @@ export const WeatherTile = (props) => {
                         </span>
                     </div>
                     <div class="temperature-holder">
-                        22°C 
+                        22°C
                     </div>
                 </div>
             </div>
@@ -25,4 +25,4 @@ export const WeatherTile = (props) => {
         
     );
 }
-
+export default WeatherTile;

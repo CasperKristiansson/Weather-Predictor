@@ -1,7 +1,7 @@
 import '../styling/components/currentweathertile.css'
 
 
-export const CurrentWeatherTile = () => {
+function CurrentWeatherTile() {
     var today = new Date();
 
     return (
@@ -36,3 +36,4 @@ export const CurrentWeatherTile = () => {
         </div>
     );
 }
+export default CurrentWeatherTile;

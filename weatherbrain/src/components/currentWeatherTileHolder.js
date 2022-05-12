@@ -1,4 +1,4 @@
-import { CurrentWeatherTile } from "./currentWeatherTile";
+import CurrentWeatherTile from "./currentWeatherTile";
 import '../styling/components/currentweathertileholder.css';
 
 export const CurrentWeatherTileHolder = () => {
