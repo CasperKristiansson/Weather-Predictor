@@ -24,46 +24,72 @@ export const DetailedView = () => {
                 <h1>Statistics</h1>
             </div>
             <div className="detailContainer">
-                <h2>This week (week number {weekNumber})</h2>
-                <div className="statistics">
-                    Average temperature: <br></br>
-                    Lowest temperature: <br></br>
-                    Highest temperature: <br></br><br></br>
 
-                    Average humidity: <br></br>
-                    Lowest humidity: <br></br>
-                    Highest humidity:
+                <div className="row1">
+                    <div className="box1">
+                        <h2>This week (week number {weekNumber})</h2>
+                        <div className="statistics">
+                            Average temperature: <br></br>
+                            Lowest temperature: <br></br>
+                            Highest temperature: <br></br><br></br>
 
+                            Average humidity: <br></br>
+                            Lowest humidity: <br></br>
+                            Highest humidity:
+                        </div>
 
-                    <br></br><br></br>
+                        {/* <br></br><br></br> */}
+                    </div>
+
+                    <div className="box2">
+                        <h2>Previous week (week number {weekNumber - 1})</h2>
+                        <div className="statistics">
+
+                            Average temperature: <br></br>
+                            Lowest temperature: <br></br>
+                            Highest temperature: <br></br><br></br>
+
+                            Average humidity: <br></br>
+                            Lowest humidity: <br></br>
+                            Highest humidity:
+                        </div>
+                        {/* <br></br><br></br> */}
+                    </div>
                 </div>
-                <h2>Previous week (week number {weekNumber - 1})</h2>
-                <div className="statistics">
+                <div className="row2">
 
-                    Average temperature: <br></br>
-                    Lowest temperature: <br></br>
-                    Highest temperature: <br></br><br></br>
+                    <div className="box3">
 
-                    Average humidity: <br></br>
-                    Lowest humidity: <br></br>
-                    Highest humidity:
-                    <br></br><br></br>
-                </div>
-                <h2>{nameOfMonth} {year}</h2>
-                <div className="statistics">
+                        <h2>{nameOfMonth} {year}</h2>
+                        <div className="statistics">
 
-                    Average temperature: <br></br>
-                    Lowest temperature: <br></br>
-                    Highest temperature: <br></br><br></br>
+                            Average temperature: <br></br>
+                            Lowest temperature: <br></br>
+                            Highest temperature: <br></br><br></br>
 
-                    Average humidity: <br></br>
-                    Lowest humidity: <br></br>
-                    Highest humidity:
-                    <br></br><br></br>
-                    <h2>News</h2>
+                            Average humidity: <br></br>
+                            Lowest humidity: <br></br>
+                            Highest humidity:
+                            {/* <br></br><br></br> */}
+                        </div>
+                        </div>
 
-                    Employee of the month: Daniel Chouster <br></br>
-                    Fired employees: Fredrik Janetzky
+                        <div className="box4">
+
+                            <h2>Prediction for the next seven days</h2>
+                            <div className="statistics">
+
+                                Average temperature: <br></br>
+                                Lowest temperature: <br></br>
+                                Highest temperature: <br></br><br></br>
+
+                                Average humidity: <br></br>
+                                Lowest humidity: <br></br>
+                                Highest humidity:
+                            </div>
+                        
+
+                    </div>
                 </div>
             </div>
         </>

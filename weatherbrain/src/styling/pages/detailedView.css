@@ -8,6 +8,11 @@
     z-index: 1000;
     overflow: auto;
     /* padding-top: 10%; */
+    /* display: grid; */
+    /* justify-content: space-between; */
+    /* display: inline-flex; */
+
+
 }
 
 .statistics {
@@ -24,4 +29,40 @@ h1 {
     line-height: 1;
     text-align: center;
     margin-bottom: 10px;
+}
+
+.box1 {
+    background-color: rgb(73, 52, 255);
+    height: 50%;
+    width: 50%;
+}
+
+.box2 {
+    background-color: rgb(129, 82, 238);
+    height: 50%;
+    width: 50%;
+}
+
+.box3 {
+    background-color: rgb(104, 177, 236);
+    height: 50%;
+    width: 50%;
+}
+
+.box4 {
+    background-color: rgb(161, 217, 255);
+    height: 50%;
+    width: 50%;
+}
+
+.row1 {
+    display: flex;
+
+}
+
+.row2 {
+
+    display: flex;
+
+
 }
