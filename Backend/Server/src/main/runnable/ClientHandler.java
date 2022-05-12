@@ -51,13 +51,11 @@ public class ClientHandler extends Thread {
                     jsonObject.put("temperature", day.getTemperature());
                     jsonObject.put("airPressure", day.getAirPressure());
                     jsonObject.put("humidity", day.getHumidity());
-                    System.out.println(jsonObject.toString());
                     outputStreamWriter.write("HTTP/1.1 200 OK \r\n\r\n");
                     outputStreamWriter.write(jsonObject.toString());
                     outputStreamWriter.flush();
                 }
                 if (urlArray[0].equals("/forecast")) {
-                    System.out.println("Forecast");
                     List<Day> days = controller.get7DaysAhead();
                     JSONArray jsonArray = new JSONArray();
                     for (Day day : days) {
@@ -68,7 +66,6 @@ public class ClientHandler extends Thread {
                         jsonObject.put("humidity", day.getHumidity());
                         jsonArray.put(jsonObject);
                     }
-                    System.out.println(jsonArray.toString());
                     outputStreamWriter.write("HTTP/1.1 200 OK \r\n\r\n");
                     outputStreamWriter.write(jsonArray.toString());
                     outputStreamWriter.flush();
