@@ -52,7 +52,7 @@ public class Day {
     public void setDate(String date) {
         this.date = date;
     }
-
+  
     /**
      * 
      * @param temperature the temperature to set
@@ -60,7 +60,6 @@ public class Day {
     public void setTemperature(float temperature) {
         this.temperature = temperature;
     }
-
     /**
      * 
      * @param airPressure the airPressure to set
@@ -75,5 +74,11 @@ public class Day {
      */
     public void setHumidity(int humidity) {
         this.humidity = humidity;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Day [date=" + date + ", temperature=" + temperature + ", airPressure=" + air_pressure + ", humidity=" + humidity + "]";
     }
 }
