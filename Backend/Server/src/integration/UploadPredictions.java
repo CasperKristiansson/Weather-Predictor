@@ -2,7 +2,10 @@ package integration;
 
 import java.io.*;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.sql.Timestamp;
 
 import model.Day;
 
@@ -47,9 +50,10 @@ public class UploadPredictions {
         String csvSplitBy = ",";
 
         BufferedReader br = new BufferedReader(new FileReader(fileName));
+        br.readLine();
         while ((line = br.readLine()) != null) {
             String[] data = line.split(csvSplitBy);
-            Day dataObject = new model.Day(data[0], data[1], Float.parseFloat(data[2]), Float.parseFloat(data[3]), Float.parseFloat(data[4]));
+            Day dataObject = new model.Day(data[0], Float.parseFloat(data[1]), Float.parseFloat(data[2]), Float.parseFloat(data[3]));
             dataObjects.add(dataObject);
         }
 
@@ -58,27 +62,29 @@ public class UploadPredictions {
         return dataObjects;
     }
 
-    public void uploadPredictions(ArrayList<Day> dataObjects) throws SQLException, IOException {
+    public void uploadPredictions(ArrayList<Day> dataObjects) throws SQLException, IOException, ParseException {
         for (Day dataObject : dataObjects) {
-            String sql = "INSERT INTO predictions (date, time, temperature, airPressure, humidity) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-            preparedStatement.setString(1, dataObject.getDate());
-            preparedStatement.setString(2, dataObject.getTime());
-            preparedStatement.setFloat(3, dataObject.getTemperature());
-            preparedStatement.setFloat(4, dataObject.getAirPressure());
-            preparedStatement.setFloat(5, dataObject.getHumidity());
-            preparedStatement.executeUpdate();
+            String sql = "INSERT INTO prediction_data (date, temperature, air_pressure, humidity) VALUES (?, ?, ?, ?)";
 
-            System.out.println("Inserted " + dataObject.getDate() + " " + dataObject.getTime());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
+            java.util.Date date = sdf.parse(dataObject.getDate());
+            java.sql.Timestamp dateSql = new java.sql.Timestamp(date.getTime());
+
+            PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
+            preparedStatement.setTimestamp(1, dateSql);
+            preparedStatement.setFloat(2, dataObject.getTemperature());
+            preparedStatement.setFloat(3, dataObject.getAirPressure());
+            preparedStatement.setFloat(4, dataObject.getHumidity());
+            preparedStatement.executeUpdate();
         }
     }
 
-    public static void main(String[] args) throws SQLException, IOException {
+    public static void main(String[] args) throws SQLException, IOException, ParseException {
         UploadPredictions upload = new UploadPredictions();
         ArrayList<Day> dataObjects = UploadPredictions.loadCSV("..\\Data\\Upload Data\\predictions.csv");
         for (Day dataObject : dataObjects) {
             System.out.println(dataObject);
         }
-        // upload.uploadPredictions(dataObjects);
+        upload.uploadPredictions(dataObjects);
     }
 }

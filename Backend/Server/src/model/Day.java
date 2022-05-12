@@ -2,14 +2,12 @@ package model;
 
 public class Day {
     private String date;
-    private String time;
     private float temperature;
     private float airPressure;
     private float humidity;
 
-    public Day(String date, String time, float temperature, float airPressure, float humidity){
+    public Day(String date, float temperature, float airPressure, float humidity){
         this.date = date;
-        this.time = time;
         this.temperature = temperature;
         this.airPressure = airPressure;
         this.humidity = humidity;
@@ -21,14 +19,6 @@ public class Day {
      */
     public String getDate() {
         return date;
-    }
-
-    /**
-     * 
-     * @return the time
-     */
-    public String getTime() {
-        return time;
     }
 
     /**
@@ -62,15 +52,7 @@ public class Day {
     public void setDate(String date) {
         this.date = date;
     }
-
-    /**
-     * 
-     * @param time the time to set
-     */
-    public void setTime(String time) {
-        this.time = time;
-    }
-
+    
     /**
      * 
      * @param temperature the temperature to set
@@ -97,6 +79,6 @@ public class Day {
 
     @Override
     public String toString() {
-        return "Day [date=" + date + ", time=" + time + ", temperature=" + temperature + ", airPressure=" + airPressure + ", humidity=" + humidity + "]";
+        return "Day [date=" + date + ", temperature=" + temperature + ", airPressure=" + airPressure + ", humidity=" + humidity + "]";
     }
 }
