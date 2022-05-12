@@ -205,6 +205,5 @@ if __name__ == '__main__':
         }, ignore_index=True)
 
         print(i, {'Temperature': prediction[0], 'Air Pressure': prediction[1], 'Humidity': prediction[2]}, time.time() - start_time)
-        break
 
     # result_df.to_csv('prediction.csv')
