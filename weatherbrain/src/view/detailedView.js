@@ -8,47 +8,65 @@ import '../styling/pages/detailedView.css';
 //History, last week?
 
 
-const month = 
-["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const month =
+    ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var currentDate = new Date();
 var startDate = new Date(currentDate.getFullYear(), 0, 1);
 var days = Math.floor((currentDate - startDate) / (24 * 60 * 60 * 1000));
 let nameOfMonth = month[currentDate.getMonth()];
 var weekNumber = Math.ceil((currentDate.getDay() + 1 + days) / 7);
-let year = startDate.getYear();
+let year = startDate.getYear() + 1900;
 
 export const DetailedView = () => {
     return (
-        <div className="detailContainer">
-            <h2>Statistics for current week</h2> 
-            <div className="statistics">
-                Average temperature: <br></br>
-                Lowest temperature: <br></br>
-                Highest temperature: 
-                <br></br><br></br>
+        <>
+            <div className="statHeader">
+                <h1>Statistics</h1>
             </div>
-            <h2>Statistics for last week (week number {weekNumber - 1})</h2>
-            <div className="statistics">
+            <div className="detailContainer">
+                <h2>This week (week number {weekNumber})</h2>
+                <div className="statistics">
+                    Average temperature: <br></br>
+                    Lowest temperature: <br></br>
+                    Highest temperature: <br></br><br></br>
 
-                Average temperature: <br></br>
-                Lowest temperature: <br></br>
-                Highest temperature: 
-                <br></br><br></br>
+                    Average humidity: <br></br>
+                    Lowest humidity: <br></br>
+                    Highest humidity:
+
+
+                    <br></br><br></br>
+                </div>
+                <h2>Previous week (week number {weekNumber - 1})</h2>
+                <div className="statistics">
+
+                    Average temperature: <br></br>
+                    Lowest temperature: <br></br>
+                    Highest temperature: <br></br><br></br>
+
+                    Average humidity: <br></br>
+                    Lowest humidity: <br></br>
+                    Highest humidity:
+                    <br></br><br></br>
+                </div>
+                <h2>{nameOfMonth} {year}</h2>
+                <div className="statistics">
+
+                    Average temperature: <br></br>
+                    Lowest temperature: <br></br>
+                    Highest temperature: <br></br><br></br>
+
+                    Average humidity: <br></br>
+                    Lowest humidity: <br></br>
+                    Highest humidity:
+                    <br></br><br></br>
+                    <h2>News</h2>
+
+                    Employee of the month: Daniel Chouster <br></br>
+                    Fired employees: Fredrik Janetzky
+                </div>
             </div>
-            <h2>Statistics for {nameOfMonth} {1900 + year}</h2>
-            <div className="statistics">
-
-                Average temperature: <br></br>
-                Lowest temperature: <br></br>
-                Highest temperature: 
-                <br></br><br></br>
-            </div>
-        </div>
-
-
-        // <div>
-        //     <Graph />
-        // </div>
+        </>
     );
 
 }
