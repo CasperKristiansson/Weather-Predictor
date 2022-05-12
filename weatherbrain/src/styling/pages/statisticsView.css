@@ -67,4 +67,5 @@ h1 {
 .row2 {
     padding-top: 5%;
     display: flex;
+    padding-bottom: 100px;
 }
