@@ -6,13 +6,13 @@ __maintainer__ = "Casper Kristiansson"
 __email__ = "casperkr@kth.se"
 __status__ = "Development"
 
-from Library.data_management import DataManagement
+from library.model import Model
 
 
 def main():
-    data_management = DataManagement()
-    data = data_management.load_temperature()
-    print(data)
+    ml_model = Model()
+    model = ml_model.load_model('saved_model\weather_model')
+    print(model)
 
 
 if __name__ == '__main__':
