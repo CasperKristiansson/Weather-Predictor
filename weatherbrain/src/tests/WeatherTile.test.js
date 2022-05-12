@@ -16,21 +16,16 @@ it ("renders withouth crashing", () => {
     ReactDom.unmountComponentAtNode(div);
 })
 
-it("renders weather tile correctly with pros, date", () => {
+it("renders weather tile correctly with props, date", () => {
     const { getByText } = render(<WeatherTile date="2020-01-01" icon="sunny" temperature="22°C" />);
     const date = getByText("2020-01-01");
     expect(date).toBeInTheDocument("2020-01-01");
 })
 
-it("renders weather tile correctly with pros, date", () => {
-    const { getByText } = render(<WeatherTile date="2020-02-01" icon="sunny" temperature="22°C" />);
-    const date = getByText("2020-02-01");
-    expect(date).toBeInTheDocument("2020-02-01");
-})
 
-/*
+
+/*SNAP SHOT TEST */
 it("matches snapshot", () => {
     const tree = renderer.create(<WeatherTile date="2020-01-01" icon="sunny" temperature="22°C" />).toJSON();
     expect(tree).toMatchSnapshot();
 })
-*/
