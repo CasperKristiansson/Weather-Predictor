@@ -3,10 +3,10 @@ package main.runnable;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.io.*;
+import java.util.*;
 import controller.*;
 import model.*;
 import org.json.*;
-
 
 public class ClientHandler extends Thread {
     private Socket clientSocket = null;
@@ -21,16 +21,12 @@ public class ClientHandler extends Thread {
 
         try {
             byte buffer[] = new byte[BUFFERSIZE];
-            // Create input and output streams
             InputStream inputStream = clientSocket.getInputStream();
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(clientSocket.getOutputStream(), StandardCharsets.UTF_8);
-
-            // Create data input and output streams
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(clientSocket.getOutputStream(),
+                    StandardCharsets.UTF_8);
             try {
                 inputStream.read(buffer);
                 String clientData = new String(buffer, StandardCharsets.UTF_8);
-                //System.out.println("Client data: " + clientData);
-
                 String[] lines = clientData.split("\r\n");
                 String GETLine = lines[0];
                 String[] GETLineArray = GETLine.split(" ");
@@ -42,26 +38,38 @@ public class ClientHandler extends Thread {
                 String url = GETLineArray[1];
                 String[] urlArray = url.split("\\?");
 
-                if (!urlArray[0].equals("/current_weather") || urlArray.length == 0) {
+                if (!urlArray[0].equals("/current_weather") && !urlArray[0].equals("/forecast") || urlArray.length == 0) {
                     throw new Exception("HTTP/1.1 404 Not Found");
                 }
-                //if (urlArray.length < 2) {
-                //    throw new Exception("HTTP/1.1 400 Bad Request");
-                //}
-                
-                Controller controller = new Controller();
-                Day day = controller.getCurrentWeather();
 
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("date", day.getDate());
-                jsonObject.put("temperature", day.getTemperature());
-                jsonObject.put("airPressure", day.getAirPressure());
-                jsonObject.put("humidity", day.getHumidity());
-                // Write data to client
-                System.out.println(jsonObject.toString());
-                outputStreamWriter.write("HTTP/1.1 200 OK \r\n\r\n");
-                outputStreamWriter.write(jsonObject.toString());
-                outputStreamWriter.flush();
+                Controller controller = new Controller();
+
+                if (urlArray[0].equals("/current_weather")) {
+                    Day day = controller.getCurrentWeather();
+                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("date", day.getDate());
+                    jsonObject.put("temperature", day.getTemperature());
+                    jsonObject.put("airPressure", day.getAirPressure());
+                    jsonObject.put("humidity", day.getHumidity());
+                    outputStreamWriter.write("HTTP/1.1 200 OK \r\n\r\n");
+                    outputStreamWriter.write(jsonObject.toString());
+                    outputStreamWriter.flush();
+                }
+                if (urlArray[0].equals("/forecast")) {
+                    List<Day> days = controller.get7DaysAhead();
+                    JSONArray jsonArray = new JSONArray();
+                    for (Day day : days) {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("date", day.getDate());
+                        jsonObject.put("temperature", day.getTemperature());
+                        jsonObject.put("airPressure", day.getAirPressure());
+                        jsonObject.put("humidity", day.getHumidity());
+                        jsonArray.put(jsonObject);
+                    }
+                    outputStreamWriter.write("HTTP/1.1 200 OK \r\n\r\n");
+                    outputStreamWriter.write(jsonArray.toString());
+                    outputStreamWriter.flush();
+                }
             } catch (Exception e) {
                 outputStreamWriter.write(e.getMessage());
                 outputStreamWriter.flush();

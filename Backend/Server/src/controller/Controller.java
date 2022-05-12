@@ -2,6 +2,7 @@ package controller;
 
 import integration.*;
 import model.Day;
+import java.util.*;
 
 public class Controller {
     private DatabaseDAO databaseDAO;
@@ -20,8 +21,13 @@ public class Controller {
         return day;
     }
 
-    public Day getTodayWeather(){
-        
-        return null;
+    public List<Day> get7DaysAhead(){
+        List<Day> days = new ArrayList<>();
+        try{
+            days = this.databaseDAO.get7DaysAhead();
+        }catch(Exception e){
+            System.out.println("Controller ERROR: " + e.getMessage());
+        }
+        return days;
     }
 }

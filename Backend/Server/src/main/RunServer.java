@@ -5,7 +5,7 @@ import main.runnable.ClientHandler;
 
 public class RunServer {
     public static void main(String[] args) {
-        try(ServerSocket serverSocket = new ServerSocket(8080);){
+        try(ServerSocket serverSocket = new ServerSocket(80);){
             System.out.println("Server started");
             while(true){
                 try{
