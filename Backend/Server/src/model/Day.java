@@ -4,9 +4,9 @@ public class Day {
     private String date;
     private float temperature;
     private float air_pressure;
-    private int humidity;
+    private float humidity;
 
-    public Day(String date, float temperature, float air_pressure, int humidity) {
+    public Day(String date, float temperature, float air_pressure, float humidity) {
         this.date = date;
         this.temperature = temperature;
         this.air_pressure = air_pressure;
@@ -41,7 +41,7 @@ public class Day {
      * 
      * @return the humidity
      */
-    public int getHumidity() {
+    public float getHumidity() {
         return humidity;
     }
 
@@ -73,7 +73,7 @@ public class Day {
      * 
      * @param humidity the humidity to set
      */
-    public void setHumidity(int humidity) {
+    public void setHumidity(float humidity) {
         this.humidity = humidity;
     }
 }
