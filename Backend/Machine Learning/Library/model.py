@@ -192,7 +192,7 @@ if __name__ == '__main__':
 
     result_df = pd.DataFrame(columns=['Date', 'Temperature', 'Air Pressure', 'Humidity'])
     start_date = datetime.datetime.now()
-    period = 24 * 7     # The amount of steps to predict in the future.
+    period = 24 * 9     # The amount of steps to predict in the future. 24 = hours, 9 = days.
 
     start_time = time.time()
     for i in range(1, period + 1):
@@ -206,4 +206,4 @@ if __name__ == '__main__':
 
         print(i, {'Temperature': prediction[0], 'Air Pressure': prediction[1], 'Humidity': prediction[2]}, time.time() - start_time)
 
-    # result_df.to_csv('prediction.csv')
+    result_df.to_csv('..\\Data\\Upload Data\\predictions.csv', index=False)

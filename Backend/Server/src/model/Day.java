@@ -5,12 +5,14 @@ public class Day {
     private String time;
     private float temperature;
     private float airPressure;
+    private float humidity;
 
-    public Day(String date, String time, float temperature, float airPressure){
+    public Day(String date, String time, float temperature, float airPressure, float humidity){
         this.date = date;
         this.time = time;
         this.temperature = temperature;
         this.airPressure = airPressure;
+        this.humidity = humidity;
     }
 
     /*GETTERS*/
@@ -45,6 +47,14 @@ public class Day {
         return airPressure;
     }
 
+    /**
+     * 
+     * @return the humidity
+    */  
+    public float getHumidity() {
+        return humidity;
+    }
+
     /*SETTERS*/
     /**
      * @param date the date to set
@@ -75,5 +85,18 @@ public class Day {
      */
     public void setAirPressure(float airPressure) {
         this.airPressure = airPressure;
+    }
+
+    /**
+     * 
+     * @param humidity the humidity to set
+    */
+    public void setHumidity(float humidity) {
+        this.humidity = humidity;
+    }
+
+    @Override
+    public String toString() {
+        return "Day [date=" + date + ", time=" + time + ", temperature=" + temperature + ", airPressure=" + airPressure + ", humidity=" + humidity + "]";
     }
 }
