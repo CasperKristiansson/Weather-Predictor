@@ -76,7 +76,7 @@ export const StatisticsView = () => {
 
                         <div className="box4">
 
-                            <h2>Prediction for the next seven days</h2>
+                            <h2>Predictions for the next seven days</h2>
                             <div className="statistics">
 
                                 Average temperature: <br></br>
