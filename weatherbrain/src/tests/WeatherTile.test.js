@@ -6,6 +6,8 @@ import WeatherTile from "../components/weathertile.js";
 import {render, cleanup} from '@testing-library/react';
 import "@testing-library/jest-dom/extend-expect";
 
+import renderer from 'react-test-renderer';
+
 
 afterEach(cleanup);
 it ("renders withouth crashing", () => {
@@ -26,3 +28,9 @@ it("renders weather tile correctly with pros, date", () => {
     expect(date).toBeInTheDocument("2020-02-01");
 })
 
+/*
+it("matches snapshot", () => {
+    const tree = renderer.create(<WeatherTile date="2020-01-01" icon="sunny" temperature="22°C" />).toJSON();
+    expect(tree).toMatchSnapshot();
+})
+*/
