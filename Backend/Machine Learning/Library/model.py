@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 class Model:
     def __init__(self):
         self.model = None
+        self.df = None
     
     def load_model(self, file_name):
         def loss_mse_warmup(y_true, y_pred):
@@ -32,12 +33,23 @@ class Model:
             return mse
 
         self.model = keras.models.load_model(file_name, custom_objects={'loss_mse_warmup': loss_mse_warmup})
-
-        # print(self.model.summary())
     
+    def load_old_data(self):
+        self.df = pd.read_csv('..\\Data\\Processed Data\\smhi_data.csv', low_memory=False)
+        self.df['Date'] = pd.to_datetime(self.df['Date'], format='%Y-%m-%d %H:%M:%S')
+        self.df['Day'] = self.df['Date'].dt.day_of_year
+        self.df['Hour'] = self.df['Date'].dt.hour
+        self.df.set_index('Date', inplace=True)
+        col = self.df.pop('Day')
+        self.df.insert(0, col.name, col)
+
+        # self.df = self.df.drop(self.df.index[:150000])
+
+        # Remove the first 70% of the data
+
     def save_model(self, file_name):
         self.model.save(file_name)
-    
+
     def example(self):
         def plot_comparison(start_idx, length=100, train=True):
             """
@@ -79,18 +91,34 @@ class Model:
             plt.legend()
             plt.show()
 
-        df = pd.read_csv('..\\Data\\Processed Data\\smhi_data.csv', low_memory=False)
-        df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d %H:%M:%S')
-        df['Day'] = df['Date'].dt.day_of_year
-        df['Hour'] = df['Date'].dt.hour
-        df.set_index('Date', inplace=True)
-        col = df.pop('Day')
-        df.insert(0, col.name, col)
-
         print(df.head())
-            
 
-        df_targets = df[['Temperature', 'Air Pressure', 'Humidity']].shift(-24)
+        now = datetime.datetime.now()
+
+        desired_dataframe = pd.DataFrame(columns=['Day', 'Temperature', 'Air Pressure', 'Humidity', 'Hour', 'Date'])
+
+        for i in range(24*7):
+            offset_day = now + datetime.timedelta(hours=i)
+
+            data = {
+                'Day': offset_day.timetuple().tm_yday,
+                'Temperature': float('nan'),
+                'Air Pressure': float('nan'),
+                'Humidity': float('nan'),
+                'Hour': offset_day.hour,
+                'Date': offset_day
+            }
+
+            desired_dataframe = desired_dataframe.append(data, ignore_index=True)
+        
+        desired_dataframe.set_index('Date', inplace=True)
+
+        df = df.append(desired_dataframe)
+
+
+        df_targets = df[['Temperature', 'Air Pressure', 'Humidity']]
+
+        print(df_targets.tail())
 
         x_data = df.values[:-(24 * 7)]
         y_data = df_targets.values[:-(24 * 7)]
@@ -113,72 +141,39 @@ class Model:
 
         print(y_test_scaled)
 
-        # plot_comparison(start_idx=0, length=(24*7), train=True)
+        plot_comparison(start_idx=0, length=(24*7), train=True)
 
+    
+    def get_value(self, period):
+        df_targets = self.df[['Temperature', 'Air Pressure', 'Humidity']].shift(-period)
 
-        now = datetime.datetime.now()
-
-        # Create a new dataframe with the columns Day, Temperature, Air Pressure Humidity and Hour
-        desired_dataframe = pd.DataFrame(columns=['Day', 'Temperature', 'Air Pressure', 'Humidity', 'Hour', 'Date'])
-
-        for i in range(24*7):
-            offset_day = now + datetime.timedelta(hours=i)
-
-            data = {
-                'Day': offset_day.timetuple().tm_yday,
-                'Temperature': float('nan'),
-                'Air Pressure': float('nan'),
-                'Humidity': float('nan'),
-                'Hour': offset_day.hour,
-                'Date': offset_day
-            }
-
-            desired_dataframe = desired_dataframe.append(data, ignore_index=True)
-        
-        desired_dataframe.set_index('Date', inplace=True)
-
-        x_data = desired_dataframe.values
+        x_data = self.df.values[:-period]
+        y_data = df_targets.values[:-period]
 
         x_scaler = MinMaxScaler()
-        x_train_scaled = x_scaler.fit_transform(x_train)
-        x_test_scaled = x_scaler.transform(x_data)
+        x_train_scaled = x_scaler.fit_transform(x_data)
 
-        x = np.expand_dims(x_test_scaled, axis=0)
-        prediction = self.model.predict(x)
+        y_scaler = MinMaxScaler()
+        _ = y_scaler.fit_transform(y_data)
 
-        # y_pred_rescaled = y_scaler.inverse_transform(prediction[0])
-            
-        # signal_pred = y_pred_rescaled[:, 0]
+        x_train_scaled = np.expand_dims(x_train_scaled, axis=0)
+        y_pred = self.model.predict(x_train_scaled)
 
-        # plt.figure(figsize=(15,5))
-        # plt.plot(signal_pred, label='pred')
-        # p = plt.axvspan(0, 50, facecolor='black', alpha=0.15)
-        # plt.ylabel('Temperature')
-        # plt.legend()
-        # plt.show()
+        y_pred_rescaled = y_scaler.inverse_transform(y_pred[0])
 
-
-    def get_desired_dataframe(self):
-        
-
-        print(prediction)
-            
-        # signal_pred = y_pred_rescaled[:, 0]
-        # signal_true = y_true[:, 0]
-
-        # print(len(signal_true))
-
-        # plt.figure(figsize=(15,5))
-        # plt.plot(signal_true, label='true')
-        # plt.plot(signal_pred, label='pred')
-        # p = plt.axvspan(0, 50, facecolor='black', alpha=0.15)
-        # plt.ylabel('Temperature')
-        # plt.legend()
-        # plt.show()
+        return y_pred_rescaled[:, 0][-1]
 
 if __name__ == '__main__':
     model = Model()
     model.load_model('saved_model\\weather_model')
+    model.load_old_data()
 
-    print(model.example())
+    period = 24 * 7
+
+
+    date = model.df.tail(1).index
+    print(date)
+    print(date + datetime.timedelta(hours=period))
+
+    print(model.get_value(period))
     # model.get_desired_dataframe()
