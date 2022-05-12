@@ -55,7 +55,7 @@ class Model:
         The time for predicting is pretty much the same regardless of the
         Input width.
         '''
-        self.df = pd.read_csv('..\\Data\\Processed Data\\smhi_data.csv', low_memory=False)
+        self.df = pd.read_csv(r'../Data/Processed Data/smhi_data.csv', low_memory=False)
         self.df['Date'] = pd.to_datetime(self.df['Date'], format='%Y-%m-%d %H:%M:%S')
         self.df['Day'] = self.df['Date'].dt.day_of_year
         self.df['Hour'] = self.df['Date'].dt.hour
@@ -187,7 +187,7 @@ class Model:
 
 if __name__ == '__main__':
     model = Model()
-    model.load_model('saved_model\\weather_model')
+    model.load_model(r'saved_model/weather_model')
     model.load_old_data()
 
     result_df = pd.DataFrame(columns=['Date', 'Temperature', 'Air Pressure', 'Humidity'])
@@ -206,4 +206,4 @@ if __name__ == '__main__':
 
         print(i, {'Temperature': prediction[0], 'Air Pressure': prediction[1], 'Humidity': prediction[2]}, time.time() - start_time)
 
-    result_df.to_csv('..\\Data\\Upload Data\\predictions.csv', index=False)
+    result_df.to_csv(r'../Data/Upload Data/predictions.csv', index=False)
