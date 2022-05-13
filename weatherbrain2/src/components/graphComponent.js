@@ -1,4 +1,4 @@
-/*import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Bar, LabelList } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Bar, LabelList } from 'recharts';
 import '../styling/components/plotGraph.css'
 
 
@@ -70,4 +70,4 @@ export const PlotGraph = () => {
       </LineChart>
     </div>
   );
-}*/
+}

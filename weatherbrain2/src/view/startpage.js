@@ -19,7 +19,9 @@ export const Startpage = () => {
 
             <CurrentWeatherTileHolder />            
             <Weathertileholder />
-            {/*<Graph />*/}
+            <Graph />
+
+
         </>
     );
 }

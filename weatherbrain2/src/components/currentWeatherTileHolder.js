@@ -3,6 +3,7 @@ import '../styling/components/currentweathertileholder.css';
 import { weatherSource } from "../js/fetch";
 import React from "react";
 import { promiseNoWeather } from "../js/promiseNoWeather";
+import { Placeholder, Spinner, Card } from "react-bootstrap";
 
 export const CurrentWeatherTileHolder = () => {
     const [promise, setPromise] = React.useState(null);
