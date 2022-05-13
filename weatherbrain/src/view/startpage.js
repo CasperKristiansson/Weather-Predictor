@@ -9,7 +9,7 @@ export const Startpage = () => {
     return (
         <>
             <div>
-                <div class="animation">
+                <div className="animation">
                     <h1>Weather Brain</h1>
                 </div>
 

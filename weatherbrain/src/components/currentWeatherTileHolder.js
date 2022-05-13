@@ -19,7 +19,7 @@ export const CurrentWeatherTileHolder = () => {
     },[]);
 
     return (
-        <div class="container">
+        <div className="container">
             <CurrentWeatherTile
                 promise={promise}
                 data={data}
