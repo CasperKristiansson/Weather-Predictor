@@ -1,2 +1,2 @@
 # IoT-Device Documentation
-The 
+The Raspberry Pi Model B+ is connected to a BME680 sensor which can read temperature, air pressure, humidity and gasses. In our project we are not in need of the gas-readings. In our prediction model we are only interested in the first three mentioned. The Pi uses a python script to do all te actions needed. The libraries in the script are the BME680 library, time for setting a timeout, datetime for the timestamp and an azure library for uploading the data to the cloud. The device is connected to cloud via an Azure IoT-hub. The data uploaded to the IoT-hub is then fetched as an input to a Stream Analytics Job which takes the input and sends it to the SQL Database so that it can fetched for the web-app and the machine learning. 
