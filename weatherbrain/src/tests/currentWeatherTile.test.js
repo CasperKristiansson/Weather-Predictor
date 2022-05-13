@@ -1,7 +1,6 @@
 /*Philip Hägg */
 
 import React from 'react';
-import ReactDom from 'react-dom/client';
 import CurrentWeatherTile from '../components/currentWeatherTile.js';
 import {render, cleanup} from '@testing-library/react';
 import "@testing-library/jest-dom/extend-expect";

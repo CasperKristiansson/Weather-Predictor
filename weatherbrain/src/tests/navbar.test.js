@@ -1,5 +1,4 @@
 /* Philip Hägg */
-import {  Link } from 'react-router-dom';
 import {Startpage} from  '../view/startpage.js';
 import {Aboutpage} from  '../view/aboutpage.js';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
@@ -8,7 +7,6 @@ import ContactForm from "../view/contactUs";
 
 
 import React from 'react';
-import ReactDom from 'react-dom';
 import Navbar from "../components/navbar.js";
 import {render, cleanup, screen} from '@testing-library/react';
 import "@testing-library/jest-dom/extend-expect";
