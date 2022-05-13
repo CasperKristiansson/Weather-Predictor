@@ -12,6 +12,7 @@ afterEach(cleanup);
 
 it ("renders withouth crashing", () => {
     const div = document.createElement('div');
-    ReactDom.render(<CurrentWeatherTileHolder />, div)
-    ReactDom.unmountComponentAtNode(div);
+    render(<CurrentWeatherTileHolder />, div)
+   
 })
+

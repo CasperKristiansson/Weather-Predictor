@@ -20,7 +20,7 @@ import userEvent from '@testing-library/user-event'
 afterEach(cleanup);
 it ("renders withouth crashing", () => {
     const div = document.createElement('div');
-    ReactDom.render(        
+    render(        
         <Router>
             <Navbar />
                 <Routes>
@@ -30,7 +30,7 @@ it ("renders withouth crashing", () => {
                     <Route path='/contactus' element={<ContactForm/>} />
                 </Routes>
         </Router>, div)
-    ReactDom.unmountComponentAtNode(div);
+    
 })
 
 test('navigation', async () => {
