@@ -9,14 +9,14 @@ export const CurrentWeatherTileHolder = () => {
     const [data, setData] = React.useState(null);
     const [error, setError] = React.useState(null);
 
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         setPromise(
             weatherSource.getCurrentWeather().then(data => {
                 setData(data);
             }
             ).catch(error => setError(error))
         );
-    },[]);
+    },[]);*/
 
     return (
         <div className="container">
