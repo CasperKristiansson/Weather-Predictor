@@ -22,36 +22,13 @@ export default () => {
           <p>Pressure: <bold className="textBold">750-800mm</bold></p>
         </div>
         <div className="currentDay">
-          <div>
-            <img src={cloudy} alt="cloudy" />
-            <p>+22°C</p>
-            <p>22:00</p>
-          </div>
-          <div>
-            <img src={cloudy} alt="cloudy" />
-            <p>+22°C</p>
-            <p>22:00</p>
-          </div>
-          <div>
-            <img src={cloudy} alt="cloudy" />
-            <p>+22°C</p>
-            <p>22:00</p>
-          </div>
-          <div>
-            <img src={cloudy} alt="cloudy" />
-            <p>+22°C</p>
-            <p>22:00</p>
-          </div>
-          <div>
-            <img src={cloudy} alt="cloudy" />
-            <p>+22°C</p>
-            <p>22:00</p>
-          </div>
-          <div>
-            <img src={cloudy} alt="cloudy" />
-            <p>+22°C</p>
-            <p>22:00</p>
-          </div>
+          {Array.from({ length: 6 }, (v, k) => k).map(day => (
+            <div>
+              <img src={cloudy} alt="cloudy" />
+              <p>+22°C</p>
+              <p>22:00</p>
+            </div>
+          ))}
         </div>
       </div>
     </>

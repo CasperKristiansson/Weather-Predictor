@@ -27,7 +27,8 @@
 .currentDay {
     display: grid;
     grid-template-columns: calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6);
-    background-color: #0000;
+    background-color: #00000052;
+    backdrop-filter: blur(10px);
 }
 
 .currentDay img{

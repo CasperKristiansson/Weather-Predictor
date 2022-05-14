@@ -2,6 +2,7 @@ import React from "react";
 import './home.css'
 import background from './background.jpg'
 import CurrentWeatherDisplay from './currentWeatherDisplay'
+import UpcomingWeatherDisplay from './upcomingWeatherDisplay'
 import Navigation from './navigation'
 
 export default () => {
@@ -12,6 +13,7 @@ export default () => {
       <Navigation />
       <div className="weatherDisplay">
         <CurrentWeatherDisplay />
+        <UpcomingWeatherDisplay />
       </div>
     </>
   );

@@ -1,0 +1,15 @@
+.upcomingWeatherDisplay {
+    position: absolute;
+    display: grid;
+    width: calc(100% - 100px);
+    grid-template-columns: repeat(7, calc(100%/7));
+    margin-top: 400px;
+}
+
+.upcomingWeatherDisplay img {
+    width: 30%;
+}
+
+.upcomingWeatherDisplay {
+    text-align: left;
+}
