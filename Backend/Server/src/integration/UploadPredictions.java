@@ -63,6 +63,10 @@ public class UploadPredictions {
     }
 
     public void uploadPredictions(ArrayList<Day> dataObjects) throws SQLException, IOException, ParseException {
+        String sqlDelete = "DELETE FROM predictions";
+        PreparedStatement statement = connection.prepareStatement(sqlDelete);
+        statement.executeUpdate();
+
         for (Day dataObject : dataObjects) {
             String sql = "INSERT INTO prediction_data (date, temperature, air_pressure, humidity) VALUES (?, ?, ?, ?)";
 
