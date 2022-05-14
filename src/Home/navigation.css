@@ -1,0 +1,27 @@
+.navigationBar {
+    position: absolute;
+}
+
+.logoText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    padding: 20px 0 0 30px;
+}
+
+.weatherPosition {
+    position: absolute;
+    font-size: 20px;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 100%;
+    padding: 17px 0 0 125px;
+}
+
+.textBold {
+    font-weight: bold;
+}
