@@ -1,9 +1,8 @@
 .currentWeatherDisplay {
-    position: absolute;
+    position: relative;
     display: grid;
     width: calc(100% - 100px);
     grid-template-columns: 10% 20% 20% 50%;
-    margin-top: 200px;
 }
 
 .currentMinMax img {
@@ -27,8 +26,8 @@
 .currentDay {
     display: grid;
     grid-template-columns: calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6);
-    background-color: #00000052;
-    backdrop-filter: blur(10px);
+    background-color: #0000003e;
+    backdrop-filter: blur(3px);
 }
 
 .currentDay img{

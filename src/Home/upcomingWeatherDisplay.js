@@ -4,6 +4,7 @@ import cloudy from './weather-icons/cloudy.png'
 export default () => {
 	return(
 		<>
+		<hr style={{color: '#c3c3c3', borderTop: '1px solid'}}/>
 		<div className="upcomingWeatherDisplay">
 			{Array.from({ length: 7 }, (v, k) => k).map(day => (
 				<div>

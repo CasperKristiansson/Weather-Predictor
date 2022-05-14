@@ -11,7 +11,7 @@ export default () => {
 				WeatherBrain
 			</a>
 			<p className="weatherPosition">
-				<FontAwesomeIcon icon={faLocationDot} />&nbsp;&nbsp; Weather in <bold className="textBold">Stockholm, Sweden</bold> region
+				<FontAwesomeIcon icon={faLocationDot} color={'#ffff'} />&nbsp;&nbsp; Weather in <bold className="textBold">Stockholm, Sweden</bold> region
 			</p>
 		</div>
 		</>

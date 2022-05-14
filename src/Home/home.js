@@ -1,6 +1,6 @@
 import React from "react";
 import './home.css'
-import background from './6317024.png'
+import background from './6317024.jpg'
 import CurrentWeatherDisplay from './currentWeatherDisplay'
 import UpcomingWeatherDisplay from './upcomingWeatherDisplay'
 import Navigation from './navigation'
