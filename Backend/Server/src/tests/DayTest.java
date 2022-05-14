@@ -1,4 +1,4 @@
-import 
-public class DayTest{
+package tests;
+public class DayTest {
 
 }
