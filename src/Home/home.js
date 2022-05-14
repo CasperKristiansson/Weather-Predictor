@@ -1,6 +1,6 @@
 import React from "react";
 import './home.css'
-import background from './background.jpg'
+import background from './6317024.png'
 import CurrentWeatherDisplay from './currentWeatherDisplay'
 import UpcomingWeatherDisplay from './upcomingWeatherDisplay'
 import Navigation from './navigation'
@@ -8,7 +8,7 @@ import Navigation from './navigation'
 export default () => {
   return (
     <>
-      <div className="" style={{ backgroundImage: `url(${background})`, backgroundPosition: 'center', backgroundSize: 'center', backgroundRepeat: 'no-repeat' }}/>
+      <div className="FullPageBackground" style={{ backgroundImage: `url(${background})` }}/>
 
       <Navigation />
       <div className="weatherDisplay">
