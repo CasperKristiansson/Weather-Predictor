@@ -52,7 +52,7 @@ public class DatabaseDAO {
                 resultSet.getString("date"),
                 resultSet.getFloat("temperature"),
                 resultSet.getFloat("air_pressure"),
-                resultSet.getInt("humidity")
+                resultSet.getFloat("humidity")
             ));
         }
         return days;
@@ -71,14 +71,14 @@ public class DatabaseDAO {
                 resultSet.getString("date"),
                 resultSet.getFloat("temperature"),
                 resultSet.getFloat("air_pressure"),
-                resultSet.getInt("humidity")
+                resultSet.getFloat("humidity")
                 );
         }
         return day;
     }
 
     private void prepareStatements() throws SQLException {
-        get7DaysAhead = connection.prepareStatement("SELECT * FROM ? WHERE date >= ?");
+        get7DaysAhead = connection.prepareStatement("SELECT * FROM [dbo].[prediction_data]");
         getCurrent = connection.prepareStatement("SELECT * from [dbo].[smhi_data] WHERE date=(SELECT MAX(date) from [dbo].[smhi_data])");
     }
 

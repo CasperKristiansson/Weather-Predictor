@@ -20,7 +20,7 @@ export const Weathertileholder = () => {
     
 
     return (
-        <div class="parent-container">
+        <div className="parent-container">
             {listTiles}
         </div>
     );

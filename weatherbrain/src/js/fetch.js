@@ -1,18 +1,17 @@
-const weatherSource = {
-    getCurrentWeather(params){
-        return fetch(CURRENT_WEATHER + params.query)
+export const weatherSource = {
+    getCurrentWeather(){
+        return fetch("http://40.113.6.64/current_weather")
         .then(response => { response.json()
         });
     },
-    getSevenDayPrediction (params){
-        return fetch(SEVEN_DAY_PREDICTION + params.query)
+    getSevenDayPrediction (){
+        return fetch("http://40.113.6.64/forecast")
         .then(response => { response.json()
         });
     },
-    getGraphData(params){
-        return fetch(GRAPH_DATA + params.query)
+    getGraphData(){
+        return fetch("" + params.query)
         .then(response => { response.json()
         });
     }
-    
 };
