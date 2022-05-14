@@ -1,0 +1,11 @@
+.currentWeatherDisplay {
+    position: absolute;
+    display: grid;
+    width: calc(100% - 100px);
+    grid-template-columns: 10% 20% 20% 50%;
+    margin-top: 200px;
+}
+
+.currentMinMax img {
+    width: 60%;
+}

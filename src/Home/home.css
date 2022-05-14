@@ -4,3 +4,8 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.weatherDisplay {
+    background-color: aquamarine;
+    padding: 0 50px 0 50px;
+}
