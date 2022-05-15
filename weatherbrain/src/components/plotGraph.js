@@ -1,15 +1,18 @@
 import '../styling/components/plotGraph.css'
-import { PlotGraph } from './graphComponent';
+import { Chart } from './chart';
+
+
+
 
 
 export const Graph = () => {
 
     return (
 
-        <div className="graphContainer">
+        <div class="graphContainer">
 
             <div>
-                <PlotGraph />
+                <Chart/>
             </div>
 
         </div>

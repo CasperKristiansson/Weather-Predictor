@@ -10,8 +10,8 @@ export const weatherSource = {
         });
     },
     getGraphData(){
-        return fetch("" + params.query)
-        .then(response => { response.json()
-        });
+        // return fetch("" + params.query)
+        // .then(response => { response.json()
+        // });
     }
 };

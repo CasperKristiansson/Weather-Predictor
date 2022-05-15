@@ -13,13 +13,13 @@ export const Startpage = () => {
                     <h1>Weather Brain</h1>
                 </div>
 
-                <h2>Predicting weather with state of the art Macheine Learning </h2>
+                <h2>Predicting weather with state of the art Machine Learning </h2>
 
             </div>
 
             <CurrentWeatherTileHolder />            
             <Weathertileholder />
-            {/*<Graph />*/}
+            <Graph />
         </>
     );
 }
