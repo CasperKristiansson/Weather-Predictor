@@ -1,6 +1,6 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
-import { color } from "echarts";
+/*import { color } from "echarts";*/
 export const Chart = () => {
 
     const option = {
