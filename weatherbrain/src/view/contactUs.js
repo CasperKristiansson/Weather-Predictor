@@ -11,9 +11,9 @@ const ContactForm = () => {
 
     const submit = () => {
         if (name && email && message) {
-            const serviceId = 'service_id';
-            const templateId = 'template_id';
-            const userId = 'user_id';
+            const serviceId = 'service_gyq520g';
+            const templateId = 'template_xskzfno';
+            const userId = 'hDuDnDbEQ88JLM1EU';
             const templateParams = {
                 name,
                 email,
