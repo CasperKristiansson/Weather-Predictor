@@ -1,5 +1,4 @@
 import '../styling/components/currentweathertile.css'
-import { promiseNoSpinner } from '../js/promiseNoSpinner';
 import { promiseNoWeather } from '../js/promiseNoWeather';
 
 function CurrentWeatherTile(props) {
