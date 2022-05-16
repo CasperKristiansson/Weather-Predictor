@@ -2,9 +2,6 @@ export const weatherSource = {
     getCurrentWeather(){
         return fetch("http://40.113.6.64/current_weather",{
             method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
             origin: "http://localhost:3000"
         });
     },
