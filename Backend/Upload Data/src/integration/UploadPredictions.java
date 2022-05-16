@@ -27,7 +27,7 @@ public class UploadPredictions {
      * @throws IOException
      */
     private void connectToDB() throws SQLException, IOException {
-        InputStream input = new FileInputStream("src\\credentials\\databaseCredentials.properties");
+        InputStream input = new FileInputStream("src/credentials/databaseCredentials.properties");
         Properties prop = new Properties();
         prop.load(input);
 
@@ -85,7 +85,7 @@ public class UploadPredictions {
 
     public static void main(String[] args) throws SQLException, IOException, ParseException {
         UploadPredictions upload = new UploadPredictions();
-        ArrayList<Day> dataObjects = UploadPredictions.loadCSV("..\\Data\\Upload Data\\predictions.csv");
+        ArrayList<Day> dataObjects = UploadPredictions.loadCSV("../Data/Upload Data/predictions.csv");
         for (Day dataObject : dataObjects) {
             System.out.println(dataObject);
         }
