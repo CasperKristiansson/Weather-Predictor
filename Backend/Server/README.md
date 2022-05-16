@@ -11,4 +11,4 @@ screen
 sudo java -jar server.jar
 ctrl - a och sen ctrl - d
 To return to screen window
-screen -r
+screen -r 

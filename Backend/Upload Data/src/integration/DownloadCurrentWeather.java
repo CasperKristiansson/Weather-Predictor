@@ -3,17 +3,15 @@ package integration;
 import java.io.*;
 import java.sql.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
-import java.sql.Timestamp;
 
 import model.Day;
 
 
-public class UploadCurrentWeather {
+public class DownloadCurrentWeather {
     private Connection connection;
 
-    public UploadCurrentWeather() {
+    public DownloadCurrentWeather() {
         try {
             connectToDB();
         } catch (SQLException | IOException e) {
@@ -93,8 +91,13 @@ public class UploadCurrentWeather {
 
     public ArrayList<Day> compareWeather(ArrayList<Day> pastWeather, ArrayList<Day> databaseWeather) {
         Day pastWeatherLast = pastWeather.get(pastWeather.size() - 1);
+
+        ArrayList<Day> reversedDatabaseWeather = new ArrayList<>();
+        for (int i = databaseWeather.size() - 1; i >= 0; i--) {
+            reversedDatabaseWeather.add(databaseWeather.get(i));
+        }
         
-        for (Day weather : databaseWeather) {
+        for (Day weather : reversedDatabaseWeather) {
             if (weather.getDate().compareTo(pastWeatherLast.getDate()) > 0) {
                 pastWeather.add(weather);
             }
@@ -124,7 +127,7 @@ public class UploadCurrentWeather {
     }
 
     public static void main(String[] args) throws SQLException, IOException, ParseException {
-        UploadCurrentWeather upload = new UploadCurrentWeather();
+        DownloadCurrentWeather upload = new DownloadCurrentWeather();
         ArrayList<Day> pastWeather = upload.loadCSV("..\\Data\\Processed Data\\smhi_data.csv");
         
         ArrayList<Day> databaseWeather = upload.getLatestWeather();
