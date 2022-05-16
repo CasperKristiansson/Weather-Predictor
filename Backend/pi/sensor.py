@@ -47,9 +47,12 @@ while True:
         i=i+1
         #Event data is sent to the iot hub once every hour
         if i==3600:
-            client.send_message(data)
-            i=0
-            print('sent to azure')
+            try:
+                client.send_message(data)
+                i=0
+                print('sent to azure')
+            except Exception as ex:
+                print('failed to send to azure ' + ex.message)
         #Sleep for one second
         time.sleep(1)
 
