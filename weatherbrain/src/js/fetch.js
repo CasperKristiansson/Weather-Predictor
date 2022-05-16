@@ -3,6 +3,12 @@ export const weatherSource = {
         return fetch("http://40.113.6.64/current_weather",{
             method: "GET",
             origin: "http://localhost:3000"
+        }).then(response => {
+            if(response.ok){
+                return response.json();
+            }else{
+                throwError(response.statusText);
+            }
         });
     },
     getSevenDayPrediction (){

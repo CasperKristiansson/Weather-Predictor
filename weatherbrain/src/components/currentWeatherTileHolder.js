@@ -11,7 +11,7 @@ export const CurrentWeatherTileHolder = () => {
     React.useEffect(() => {
         setPromise(
             weatherSource.getCurrentWeather().then(data => {
-                setData(data.json().then(data => {data; console.log(data)}));
+                setData(data);
             }
             ).catch(error => setError(error))
         );
