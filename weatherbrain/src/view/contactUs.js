@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import emailjs from 'emailjs-com';
+//import emailjs from 'emailjs-com';
 import '../styling/components/contactUs.css';
 import emailpic from '../img/emailpic.png';
 
@@ -9,7 +9,7 @@ const ContactForm = () => {
     const [message, setMessage] = useState('');
     const [emailSent, setEmailSent] = useState(false);
 
-    const submit = () => {
+    /*const submit = () => {
         if (name && email && message) {
             const serviceId = 'service_gyq520g';
             const templateId = 'template_xskzfno';
@@ -31,7 +31,7 @@ const ContactForm = () => {
         } else {
             alert('Please fill in all fields.');
         }
-    }
+    }*/
     if (emailSent) {
         return (
             <div>
