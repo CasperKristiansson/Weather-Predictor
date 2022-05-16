@@ -16,7 +16,7 @@ export const CurrentWeatherTileHolder = () => {
             ).catch(error => setError(error))
         );
     },[]);
-
+    
     return (
         <div className="container">
             <CurrentWeatherTile
