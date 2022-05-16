@@ -11,12 +11,13 @@ export const CurrentWeatherTileHolder = () => {
     React.useEffect(() => {
         setPromise(
             weatherSource.getCurrentWeather().then(data => {
+                console.log(data);
                 setData(data);
             }
             ).catch(error => setError(error))
         );
     },[]);
-    
+
     return (
         <div className="container">
             <CurrentWeatherTile
