@@ -2,7 +2,7 @@ import '../styling/components/weathertile.css';
 
 function WeatherTile  (props)  {
     return (
-        <div className="tilediv">
+        <div className="tilediv" key={props.identifier}>
 
             <div className="content-holder">
                 <div className="date">
