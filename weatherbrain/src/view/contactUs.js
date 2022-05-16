@@ -28,14 +28,16 @@ const ContactForm = () => {
             setEmail('');
             setMessage('');
             setEmailSent(true);
-        } 
+        } else {
+            alert('Please fill in all fields.');
+        }
     }
     if (emailSent) {
         return (
             <div>
                 <div className='textContainer'> 
                     <h1>Thank you!</h1>
-                    <img src={emailpic} />
+                    <img src={emailpic} alt="mail" />
                     <p>We'll be in touch soon.</p>
                 </div>
             </div>
