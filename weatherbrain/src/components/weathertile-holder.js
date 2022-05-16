@@ -1,4 +1,5 @@
 import '../styling/components/weathertile-holder.css';
+import '../styling/components/weathertile.css';
 
 
 function addDays(days) {
