@@ -91,8 +91,13 @@ public class DownloadCurrentWeather {
 
     public ArrayList<Day> compareWeather(ArrayList<Day> pastWeather, ArrayList<Day> databaseWeather) {
         Day pastWeatherLast = pastWeather.get(pastWeather.size() - 1);
+
+        ArrayList<Day> reversedDatabaseWeather = new ArrayList<>();
+        for (int i = databaseWeather.size() - 1; i >= 0; i--) {
+            reversedDatabaseWeather.add(databaseWeather.get(i));
+        }
         
-        for (Day weather : databaseWeather) {
+        for (Day weather : reversedDatabaseWeather) {
             if (weather.getDate().compareTo(pastWeatherLast.getDate()) > 0) {
                 pastWeather.add(weather);
             }
