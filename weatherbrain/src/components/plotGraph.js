@@ -9,7 +9,7 @@ export const Graph = () => {
 
     return (
 
-        <div class="graphContainer">
+        <div className="graphContainer">
 
             <div>
                 <Chart/>

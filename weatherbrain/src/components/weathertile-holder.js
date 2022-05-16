@@ -1,4 +1,3 @@
-import  WeatherTile from "./weathertile";
 import '../styling/components/weathertile-holder.css';
 
 
@@ -9,19 +8,32 @@ function addDays(days) {
   }
 
 
-
 export const Weathertileholder = () => {
-    const numbers = [0,1,2,3,4,5,6];
-    const listTiles = numbers.map((numbers) =>  
-    <WeatherTile date={(addDays(numbers).toDateString())}/>
-    );
     
-
-    
-
     return (
         <div className="parent-container">
-            {listTiles}
+            {Array.from({ length: 7 }, (v, k) => k).map(index =>
+                <div className="tilediv" key={index}>
+
+                    <div className="content-holder">
+                        <div className="date">
+                            {(addDays(index).toDateString())}
+                        </div>
+
+                        <div>
+                            <div className="icon-holder">
+                                <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+                                <span className="material-symbols-outlined">
+                                sunny
+                                </span>
+                            </div>
+                            <div className="temperature-holder">
+                                22°C
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
