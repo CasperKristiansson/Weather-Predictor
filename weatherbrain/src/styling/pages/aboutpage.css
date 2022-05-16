@@ -68,6 +68,12 @@ h2 {
 .teamContainer div{
     display:grid;
     grid-template-areas: 'img name';
+    grid-template-columns: 25% auto;
     margin-bottom: 20px;
-    width: max-content;
+    width: 40vh;
+}
+/*Make an animation for the team members*/
+.teamContainer div:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
 }
