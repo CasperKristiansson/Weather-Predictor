@@ -63,7 +63,7 @@ public class UploadPredictions {
     }
 
     public void uploadPredictions(ArrayList<Day> dataObjects) throws SQLException, IOException, ParseException {
-        String sqlDelete = "DELETE FROM predictions";
+        String sqlDelete = "DELETE FROM prediction_data";
         PreparedStatement statement = connection.prepareStatement(sqlDelete);
         statement.executeUpdate();
 
