@@ -26,7 +26,7 @@ public class DownloadCurrentWeather {
      * @throws IOException
      */
     private void connectToDB() throws SQLException, IOException {
-        InputStream input = new FileInputStream("src\\credentials\\databaseCredentials.properties");
+        InputStream input = new FileInputStream("src/credentials/databaseCredentials.properties");
         Properties prop = new Properties();
         prop.load(input);
 
@@ -107,7 +107,7 @@ public class DownloadCurrentWeather {
     }
 
     public void saveCSV(ArrayList<Day> dataObjects) throws IOException {
-        FileWriter writer = new FileWriter("..\\Data\\Processed Data\\smhi_data.csv");
+        FileWriter writer = new FileWriter("../Data/Processed Data/smhi_data.csv");
         writer.append("Date,Temperature,Air Pressure,Humidity");
         writer.append("\n");
 
@@ -128,7 +128,7 @@ public class DownloadCurrentWeather {
 
     public static void main(String[] args) throws SQLException, IOException, ParseException {
         DownloadCurrentWeather upload = new DownloadCurrentWeather();
-        ArrayList<Day> pastWeather = upload.loadCSV("..\\Data\\Processed Data\\smhi_data.csv");
+        ArrayList<Day> pastWeather = upload.loadCSV("../Data/Processed Data/smhi_data.csv");
         
         ArrayList<Day> databaseWeather = upload.getLatestWeather();
         ArrayList<Day> updatedPastWeather = upload.compareWeather(pastWeather, databaseWeather);
