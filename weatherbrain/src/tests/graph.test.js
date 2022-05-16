@@ -1,18 +1,26 @@
 /* Daniel */
 import { Graph } from "../components/plotGraph.js";
-import { renderHook } from "@testing-library/react";
-import { act } from "@testing-library/react";
-import ReactDOM from 'react-dom/client';
+import { unmountComponentAtNode } from "react-dom";
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import "@testing-library/jest-dom/extend-expect";
 
+let container = null;
+beforeEach(() => {
+  // setup a DOM element as a render target
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
 
-
-afterEach(cleanup)
+afterEach(() => {
+    // cleanup on exiting
+    unmountComponentAtNode(container);
+    container.remove();
+    container = null;
+  });
 
 it ("renders withouth crashing", () => {
-    const div = document.createElement('div');
-    render(<Graph />, div)
+
+    render(<Graph />, container)
    
 })

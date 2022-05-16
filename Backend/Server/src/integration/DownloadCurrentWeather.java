@@ -3,17 +3,15 @@ package integration;
 import java.io.*;
 import java.sql.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
-import java.sql.Timestamp;
 
 import model.Day;
 
 
-public class UploadCurrentWeather {
+public class DownloadCurrentWeather {
     private Connection connection;
 
-    public UploadCurrentWeather() {
+    public DownloadCurrentWeather() {
         try {
             connectToDB();
         } catch (SQLException | IOException e) {
@@ -124,7 +122,7 @@ public class UploadCurrentWeather {
     }
 
     public static void main(String[] args) throws SQLException, IOException, ParseException {
-        UploadCurrentWeather upload = new UploadCurrentWeather();
+        DownloadCurrentWeather upload = new DownloadCurrentWeather();
         ArrayList<Day> pastWeather = upload.loadCSV("..\\Data\\Processed Data\\smhi_data.csv");
         
         ArrayList<Day> databaseWeather = upload.getLatestWeather();
