@@ -1,12 +1,20 @@
 export const weatherSource = {
     getCurrentWeather(){
-        return fetch("http://40.113.6.64/current_weather")
-        .then(response => { response.json()
+        return fetch("http://40.113.6.64/current_weather",{
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            origin: "http://localhost:3000"
         });
     },
     getSevenDayPrediction (){
-        return fetch("http://40.113.6.64/forecast")
-        .then(response => { response.json()
+        return fetch("http://40.113.6.64/forecast",{
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            mode: "no-cors",
         });
     },
     getGraphData(){
