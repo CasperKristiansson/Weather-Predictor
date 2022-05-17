@@ -1,9 +1,12 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
+
+
 import { weatherSource } from "../js/fetch";
 
-/*import { color } from "echarts";*/
-export const Chart = () => {
+
+function Chart() {
+
 
     const [promise, setPromise] = React.useState(null);
     const [data, setData] = React.useState(null);
@@ -86,6 +89,9 @@ export const Chart = () => {
     return <ReactEcharts option={option} />;
 }
 
+
+export default Chart;
+
 export function draw(data) {
 
     let dataX = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -114,3 +120,4 @@ export function draw(data) {
     return dataX, dataY;
 
 }
+
