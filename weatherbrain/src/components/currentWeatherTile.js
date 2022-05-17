@@ -1,5 +1,7 @@
 import '../styling/components/currentweathertile.css'
+
 import { promiseNoWeather } from '../js/promiseNoWeather';
+
 
 function CurrentWeatherTile(props) {
     var today = new Date();
@@ -22,7 +24,9 @@ function CurrentWeatherTile(props) {
                     </div>
                     <div className="temp-textfield-container">
                         <div className="temperature-holder-current">
+
                         {promiseNoWeather(props.promise,props.data,props.error) || props.data.temperature} 
+
                         </div>
                         <div className="textfield">
                             <style>

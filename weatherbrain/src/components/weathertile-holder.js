@@ -9,7 +9,7 @@ function addDays(days) {
   }
 
 
-export const Weathertileholder = () => {
+function Weathertileholder () {
     
     return (
         <div className="parent-container">
@@ -38,3 +38,4 @@ export const Weathertileholder = () => {
         </div>
     );
 }
+export default Weathertileholder;
