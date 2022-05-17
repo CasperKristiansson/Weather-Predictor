@@ -2,6 +2,7 @@ import CurrentWeatherTile from "./currentWeatherTile";
 import '../styling/components/currentweathertileholder.css';
 import { weatherSource } from "../js/fetch";
 
+
 function CurrentWeatherTileHolder () {
     const [promise, setPromise] = React.useState(null);
     const [data, setData] = React.useState(null);

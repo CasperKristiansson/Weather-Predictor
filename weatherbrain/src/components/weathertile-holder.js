@@ -1,6 +1,7 @@
 import '../styling/components/weathertile-holder.css';
 import '../styling/components/weathertile.css';
 import { weatherSource } from "../js/fetch";
+import React from "react";
 
 
 
