@@ -114,7 +114,7 @@ export function draw(data) {
     }
     for (let index = 0; index < count.length; index++) {
         if (count[index] > 0) {
-            dataY[index] /= count[index];
+            dataY[index] = (dataY[index] / count[index]).toFixed(1);
         }
     }
     return dataX, dataY;

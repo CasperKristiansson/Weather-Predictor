@@ -97,17 +97,17 @@ export const StatisticsView = () => {
                             <h2>Predictions for the next seven days</h2>
                             <div className="statistics">
 
-                                Average temperature: {res.averagePredictedTemperature}°C<br></br>
-                                Lowest temperature: {res.minTemperature}°C<br></br>
-                                Highest temperature: {res.maxTemperature}°C<br></br><br></br>
+                                Average temperature: {(res.averagePredictedTemperature).toFixed(1)}°C<br></br>
+                                Lowest temperature: {(res.minTemperature).toFixed(1)}°C<br></br>
+                                Highest temperature: {(res.maxTemperature).toFixed(1)}°C<br></br><br></br>
 
-                                Average air pressure: {res.averagePredictedAirPressure}<br></br>
-                                Lowest air pressure: {res.minAirPressure}<br></br>
-                                Highest air pressure: {res.maxAirPressure}<br></br><br></br>
+                                Average air pressure: {Math.round(res.averagePredictedAirPressure)} hPa<br></br>
+                                Lowest air pressure: {Math.round(res.minAirPressure)} hPa<br></br>
+                                Highest air pressure: {Math.round(res.maxAirPressure)} hPa<br></br><br></br>
 
-                                Average humidity: {res.averagePredictedHumidity}<br></br>
-                                Lowest humidity: {res.minHumidity}<br></br>
-                                Highest humidity: {res.maxHumidity}
+                                Average humidity: {Math.round(res.averagePredictedHumidity)}%<br></br>
+                                Lowest humidity: {Math.round(res.minHumidity)}%<br></br>
+                                Highest humidity: {Math.round(res.maxHumidity)}%
 
                             </div>
                     </div>
