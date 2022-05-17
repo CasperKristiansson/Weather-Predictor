@@ -1,4 +1,9 @@
 import '../styling/components/currentweathertile.css'
+import React from 'react';
+import { useEffect, useState } from 'react';
+import coalesceNonElementChildren from 'react-native-button/coalesceNonElementChildren';
+
+
 
 
 
@@ -23,7 +28,7 @@ function CurrentWeatherTile() {
                     </div>
                     <div className="temp-textfield-container">
                         <div className="temperature-holder-current">
-                            22°C 
+                            {currentWeather}°C 
                         </div>
                         <div className="textfield">
                             <style>

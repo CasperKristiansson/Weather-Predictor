@@ -3,7 +3,7 @@ import '../styling/components/currentweathertileholder.css';
 import { weatherSource } from "../js/fetch";
 import React from "react";
 
-export const CurrentWeatherTileHolder = () => {
+function CurrentWeatherTileHolder () {
     const [promise, setPromise] = React.useState(null);
     const [data, setData] = React.useState(null);
     const [error, setError] = React.useState(null);
@@ -27,3 +27,5 @@ export const CurrentWeatherTileHolder = () => {
         </div>
     );
 }
+
+export default CurrentWeatherTileHolder;

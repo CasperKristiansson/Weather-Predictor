@@ -1,7 +1,7 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
-/*import { color } from "echarts";*/
-export const Chart = () => {
+
+function Chart() {
 
     const option = {
         xAxis: 
@@ -68,3 +68,5 @@ export const Chart = () => {
     };
     return <ReactEcharts option={option} />;
 }
+
+export default Chart;
