@@ -1,16 +1,39 @@
 import '../styling/components/weathertile-holder.css';
 import '../styling/components/weathertile.css';
+import { weatherSource } from "../js/fetch";
+import React from "react";
 
 
-function addDays(days) {
-    var result = new Date();
-    result.setDate(result.getDate() + days);
-    return result;
-  }
+
+function extractFunc(data){
+    const days = [];
+    data.forEach(element => {
+        let date = new Date(element.date);
+        if(date.getHours === 12){
+            days.push(element);
+        }
+    });
+    return days;
+}
+
+function Weathertileholder () {
+
+    const [promise, setPromise] = React.useState(null);
+    const [data, setData] = React.useState(null);
+    const [error, setError] = React.useState(null);
+
+    React.useEffect(() => {
+        setPromise(
+            weatherSource.getSevenDayPrediction().then(data => {
+                setData(extractFunc(data));
+            }
+            ).catch(error => setError(error))
+        );
+    },[]);
 
 
-export const Weathertileholder = () => {
-    
+
+
     return (
         <div className="parent-container">
             {Array.from({ length: 7 }, (v, k) => k).map(index =>
@@ -18,7 +41,7 @@ export const Weathertileholder = () => {
 
                     <div className="content-holder">
                         <div className="date">
-                            {(addDays(index).toDateString())}
+                            days
                         </div>
 
                         <div>
@@ -38,3 +61,4 @@ export const Weathertileholder = () => {
         </div>
     );
 }
+export default Weathertileholder;

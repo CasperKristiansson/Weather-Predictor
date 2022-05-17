@@ -1,10 +1,10 @@
-import { CurrentWeatherTileHolder } from "../components/currentWeatherTileHolder";
-import { Weathertileholder } from "../components/weathertile-holder";
-import { Graph } from "../components/plotGraph";
+import  CurrentWeatherTileHolder  from "../components/currentWeatherTileHolder";
+import  Weathertileholder  from "../components/weathertile-holder";
+import  Graph  from "../components/plotGraph";
 import '../styling/pages/startpage.css'
 
 
-export const Startpage = () => {
+function Startpage(){
 
     return (
         <>
@@ -23,3 +23,5 @@ export const Startpage = () => {
         </>
     );
 }
+
+export default Startpage;

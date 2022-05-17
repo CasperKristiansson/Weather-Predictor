@@ -1,16 +1,34 @@
-import CurrentWeatherTileHolder from "../components/currentWeatherTile";
-
-import React from 'react';
-import {render, cleanup} from '@testing-library/react';
-import "@testing-library/jest-dom/extend-expect";
+import React from "react";
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
 
 
+import CurrentWeatherTileHolder from "../components/CurrentWeatherTileHolder.js";
 
-afterEach(cleanup);
+let container = null;
+beforeEach(() => {
+    // setup a DOM element as a render target
+    container = document.createElement("div");
+    document.body.appendChild(container);
+  });
+  
+  afterEach(() => {
+    // cleanup on exiting
+    unmountComponentAtNode(container);
+    container.remove();
+    container = null;
+  });
 
-it ("renders withouth crashing", () => {
-    const div = document.createElement('div');
-    render(<CurrentWeatherTileHolder />, div)
-   
-})
 
+  it("renders the component", () => {
+    act(() => {
+        render(<CurrentWeatherTileHolder />, container);
+    });
+  });
+
+  it("Renders weather data", () => {
+    const fakeData = {
+      
+    }
+
+  });

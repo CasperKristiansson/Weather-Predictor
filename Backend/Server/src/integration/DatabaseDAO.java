@@ -8,7 +8,6 @@ import model.Day;
 
 public class DatabaseDAO {
     private Connection connection;
-    private String SMHI_TABLE_NAME = "smhi_data";
 
     private PreparedStatement get7DaysAhead;
     private PreparedStatement getCurrent;
