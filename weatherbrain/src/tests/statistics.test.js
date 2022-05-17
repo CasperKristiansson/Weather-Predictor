@@ -38,6 +38,9 @@ test("Testing calculations", () => {
         averagePredictedTemperature: 10,
         averagePredictedAirPressure: 800,
         averagePredictedHumidity: 900,
+        t1: 0,
+        t2: 0,
+        t3: 0,
     }
     const temp = calc(data);
     // expect(temp).toEqual(ret);
