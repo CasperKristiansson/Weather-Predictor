@@ -11,12 +11,21 @@ export const weatherSource = {
         });
     },
     getSevenDayPrediction (){
+        // return fetch("http://40.113.6.64/forecast",{
+        //     method: "GET",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     mode: "no-cors",
+        // });
         return fetch("http://40.113.6.64/forecast",{
             method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            mode: "no-cors",
+        }).then(response => {
+            if(response.ok){
+                return response.json();
+            }else{
+                throw new Error(response.statusText);
+            }
         });
     },
     getGraphData(){

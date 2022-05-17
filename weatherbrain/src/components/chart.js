@@ -1,20 +1,37 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
+import { weatherSource } from "../js/fetch";
+
 /*import { color } from "echarts";*/
 export const Chart = () => {
 
+    const [promise, setPromise] = React.useState(null);
+    const [data, setData] = React.useState(null);
+    const [error, setError] = React.useState(null);
+    React.useEffect(() => {
+        setPromise(
+            weatherSource.getSevenDayPrediction().then(data => {
+                console.log(data);
+                setData(data);
+            }
+            ).catch(error => setError(error))
+        );
+    }, []);
+
+    let dataX, dataY = draw(data);
+
     const option = {
-        xAxis: 
+        xAxis:
         {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            axisLabel: 
+            data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            axisLabel:
             {
                 color: "white",
-                borderColor:'#white',
-                itemStyle: 
+                borderColor: '#white',
+                itemStyle:
                 {
-                    emphasis: 
+                    emphasis:
                     {
                         shadowBlur: 10,
                         shadowOffsetX: 0,
@@ -23,12 +40,12 @@ export const Chart = () => {
             },
         },
         yAxis: {
-            type: 'value', 
-            name: 'Temperature', 
+            type: 'value',
+            name: 'Temperature',
             color: '#000033',
             axisLabel: {
                 color: "white",
-                borderColor:'#white',
+                borderColor: '#white',
                 formatter: '{value} °C',
                 itemStyle: {
                     emphasis: {
@@ -41,21 +58,21 @@ export const Chart = () => {
         },
         series: [
             {
-                data: [22, 15, 12, 16, 21, 19, 25],
+                data: dataY,
                 type: 'line',
                 color: '#000033',
                 radius: '100%',
-                itemStyle: 
+                itemStyle:
                 {
-                    emphasis: 
+                    emphasis:
                     {
                         shadowBlur: 10,
                         shadowOffsetX: 0,
                     }
                 },
-                label: 
-                { 
-                    //TO DO: DECIDE IF WE SHOULD KEEP THE TEMPERATURES ABOVE THE LINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                label:
+                {
+                    //TO DO: DECIDE IF WE SHOULD KEEP THE TEMPERATURES ABOVE THE LINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! change y axis label color??
                     show: true,
                     position: 'top',
                     color: "white",
@@ -67,4 +84,33 @@ export const Chart = () => {
 
     };
     return <ReactEcharts option={option} />;
+}
+
+export function draw(data) {
+
+    let dataX = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    let dataY = [0, 0, 0, 0, 0, 0, 0]
+    let count = [0, 0, 0, 0, 0, 0, 0]
+
+    if (data != null) {
+
+        data.map
+            (
+                function (opt) {
+                    let s = opt.date.split(" ");
+                    let d = new Date(s[0]);
+                    let day = d.getDay(); // 0 = sunday ?
+                    console.log("d = " + d + " day = " + day)
+                    dataY[day] += opt.temperature;
+                    count[day]++;
+                }
+            )
+    }
+    for (let index = 0; index < count.length; index++) {
+        if (count[index] > 0) {
+            dataY[index] /= count[index];
+        }
+    }
+    return dataX, dataY;
+
 }
