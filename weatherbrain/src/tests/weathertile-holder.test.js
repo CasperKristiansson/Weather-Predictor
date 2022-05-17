@@ -3,7 +3,7 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
 
-import CurrentWeatherTile from "../components/CurrentWeatherTile.js";
+import WeatherTileHolder from "../components/weathertile-holder";
 
 let container = null;
 beforeEach(() => {
@@ -22,7 +22,7 @@ beforeEach(() => {
 
   it("renders the component", () => {
     act(() => {
-        render(<CurrentWeatherTile />, container);
+        render(<WeatherTileHolder />, container);
     });
     
 });

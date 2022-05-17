@@ -1,11 +1,11 @@
 import '../styling/components/plotGraph.css'
-import { Chart } from './chart';
+import  Chart  from './chart';
 
 
 
 
 
-export const Graph = () => {
+function Graph() {
 
     return (
 
@@ -18,3 +18,5 @@ export const Graph = () => {
         </div>
     );
 }
+
+export default Graph;

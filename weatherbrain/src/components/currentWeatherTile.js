@@ -1,35 +1,38 @@
 import '../styling/components/currentweathertile.css'
-import { promiseNoSpinner } from '../js/promiseNoSpinner';
+import{BsFillSunFill , BsFillCloudDrizzleFill} from 'react-icons/bs'
 import { promiseNoWeather } from '../js/promiseNoWeather';
 
+
 function CurrentWeatherTile(props) {
-    var today = new Date();
-
     return (
-
         <div className="tilediv-current">
-
             <div className="content-holder-current">
                 <div className="date-current">
-                {promiseNoWeather(props.promise,props.data,props.error) || today.getUTCFullYear() + '-' +today.getMonth()+'-'+today.getDate()+' '+today.getHours()+':'+today.getMinutes()}
+                {promiseNoWeather(props.promise,props.data,props.error) || props.data.date}
                 </div>
 
                 <div>
-                    <div className="icon-holder-current">
-                        <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-                        <span className="material-symbols-outlined">
-                        sunny
-                        </span>
-                    </div>
                     <div className="temp-textfield-container">
                         <div className="temperature-holder-current">
-                        {promiseNoWeather(props.promise,props.data,props.error) || props.data.temperature} 
+                            {promiseNoWeather(props.promise,props.data,props.error) || <><strong>{Math.round(props.data.temperature)}°</strong>
+                            {(() => {
+                                if(props.data.humidity <= 70){
+                                    return(
+                                        <BsFillSunFill></BsFillSunFill>
+                                    )
+                                }else{
+                                    return(
+                                        <BsFillCloudDrizzleFill></BsFillCloudDrizzleFill>
+                                    )
+                                }
+                            })()}
+                            </>}
                         </div>
-                        <div className="textfield">
-                            <style>
-                            @import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@584&display=swap');
-                            </style>    
-                            {promiseNoWeather(props.promise,props.data,props.error) || <p>Today it's sunny with low probabillity for rain. </p>}
+                        <div className="temperature-holder-current">
+                            {promiseNoWeather(props.promise,props.data,props.error) || <>Humidity: <strong>{Math.round(props.data.humidity)}%</strong></>}
+                        </div>
+                        <div className="temperature-holder-current">
+                            {promiseNoWeather(props.promise,props.data,props.error) || <>Air Pressure: <strong>{Math.round(props.data.airPressure)}hPa</strong></>}
                         </div>
                     </div>
                 </div>
