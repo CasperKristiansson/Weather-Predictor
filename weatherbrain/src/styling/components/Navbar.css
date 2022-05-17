@@ -33,3 +33,13 @@
     background-color: #285b6c;
     border-radius: 5px;
 }
+.logo-image{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
+.navbar img{
+    margin-right: 10px;
+}
