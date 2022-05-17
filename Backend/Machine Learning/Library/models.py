@@ -64,7 +64,7 @@ def repeat_baseline(window):
 
     window.plot(repeat_baseline)
 
-    return repeat_baseline.evaluate(window.val), repeat_baseline.evaluate(window.test, verbose=0)
+    return repeat_baseline.evaluate(window.val), repeat_baseline.evaluate(window.test, verbose=0), window.input_indices
 
 
 def multi_linear(window, num_features):
