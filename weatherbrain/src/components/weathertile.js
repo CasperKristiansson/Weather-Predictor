@@ -1,28 +1,30 @@
 import '../styling/components/weathertile.css';
+import {BsFillSunFill, BsFillCloudDrizzleFill} from 'react-icons/bs';
 
-function WeatherTile  (props)  {
+function WeatherTile (props)  {
+    let symbol = null;
+    if(Math.round(props.day.humidity) <= 70){
+        symbol = <BsFillSunFill className='weathertile-symbol' />;
+    }else{
+        symbol = <BsFillCloudDrizzleFill className='weathertile-symbol' />;
+    }
+    
     return (
-        <div className="tilediv" key={props.identifier}>
-
+        <div className="tilediv">
             <div className="content-holder">
                 <div className="date">
-                    {props.date}
+                    {props.day.date}
                 </div>
-
                 <div>
-                    <div className="icon-holder">
-                        <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-                        <span className="material-symbols-outlined">
-                        sunny
-                        </span>
-                    </div>
                     <div className="temperature-holder">
-                        22°C
+                        <strong>{Math.round(props.day.temperature)}°</strong>
+                    </div>
+                    <div className="temperature-holder">   
+                        {symbol}
                     </div>
                 </div>
             </div>
         </div>
-        
     );
 }
 export default WeatherTile;
