@@ -1,5 +1,5 @@
 import '../styling/components/currentweathertile.css'
-
+import{BsFillSunFill , BsFillCloudDrizzleFill} from 'react-icons/bs'
 import { promiseNoWeather } from '../js/promiseNoWeather';
 
 
@@ -14,7 +14,19 @@ function CurrentWeatherTile(props) {
                 <div>
                     <div className="temp-textfield-container">
                         <div className="temperature-holder-current">
-                            {promiseNoWeather(props.promise,props.data,props.error) || <><strong>{Math.round(props.data.temperature)}°</strong></>}
+                            {promiseNoWeather(props.promise,props.data,props.error) || <><strong>{Math.round(props.data.temperature)}°</strong>
+                            {(() => {
+                                if(props.data.humidity <= 70){
+                                    return(
+                                        <BsFillSunFill></BsFillSunFill>
+                                    )
+                                }else{
+                                    return(
+                                        <BsFillCloudDrizzleFill></BsFillCloudDrizzleFill>
+                                    )
+                                }
+                            })()}
+                            </>}
                         </div>
                         <div className="temperature-holder-current">
                             {promiseNoWeather(props.promise,props.data,props.error) || <>Humidity: <strong>{Math.round(props.data.humidity)}%</strong></>}
