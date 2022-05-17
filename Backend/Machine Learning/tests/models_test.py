@@ -20,7 +20,8 @@ class ModelsTest(unittest.TestCase):
     
     def test_multi_step_last_baseline(self):
         result = models.multi_step_last_baseline(self.window)
-        self.assertIsInstance(result, tuple)
+        self.assertIsInstance(result[0], float)
+        self.assertIsInstance(result[1], float)
     
     def test_repeat_baseline(self):
         result = models.repeat_baseline(self.window)
@@ -28,23 +29,28 @@ class ModelsTest(unittest.TestCase):
     
     def test_multi_linear(self):
         result = models.multi_linear(self.window, self.num_features)
-        self.assertIsInstance(result, tuple)
+        self.assertIsInstance(result[0], float)
+        self.assertIsInstance(result[1], float)
     
     def test_multi_dense(self):
         result = models.multi_dense(self.window, self.num_features)
-        self.assertIsInstance(result, tuple)
+        self.assertIsInstance(result[0], float)
+        self.assertIsInstance(result[1], float)
     
     def test_multi_conv(self):
         result = models.multi_conv(self.window, self.num_features)
-        self.assertIsInstance(result, tuple)
+        self.assertIsInstance(result[0], float)
+        self.assertIsInstance(result[1], float)
     
     def test_multi_recurrent(self):
         result = models.multi_recurrent(self.window, self.num_features)
-        self.assertIsInstance(result, tuple)
+        self.assertIsInstance(result[0], float)
+        self.assertIsInstance(result[1], float)
     
     def test_auto_regression(self):
         result = models.auto_regression(self.window, self.num_features)
-        self.assertIsInstance(result, tuple)
+        self.assertIsInstance(result[0], float)
+        self.assertIsInstance(result[1], float)
     
 
 if __name__ == '__main__':
