@@ -11,13 +11,6 @@ export const weatherSource = {
         });
     },
     getSevenDayPrediction (){
-        // return fetch("http://40.113.6.64/forecast",{
-        //     method: "GET",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     mode: "no-cors",
-        // });
         return fetch("http://40.113.6.64/forecast",{
             method: "GET",
         }).then(response => {
@@ -28,9 +21,4 @@ export const weatherSource = {
             }
         });
     },
-    getGraphData(){
-        // return fetch("" + params.query)
-        // .then(response => { response.json()
-        // });
-    }
 };
