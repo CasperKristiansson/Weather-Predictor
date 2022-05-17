@@ -53,7 +53,7 @@ public class ClientHandler extends Thread {
                     jsonObject.put("humidity", day.getHumidity());
                     outputStreamWriter.write("HTTP/1.1 200 OK \r\n");
                     //outputStreamWriter.write("Access-Control-Allow-Origin: http://weatherbrain.azurewebsites.net \r\n");
-                    outputStreamWriter.write("Access-Control-Allow-Origin: \\* \r\n");
+                    outputStreamWriter.write("Access-Control-Allow-Origin: * \r\n");
                     outputStreamWriter.write("Access-Control-Request-Method: GET \r\n\r\n");
                     outputStreamWriter.write(jsonObject.toString());
                     outputStreamWriter.flush();
@@ -70,7 +70,7 @@ public class ClientHandler extends Thread {
                         jsonArray.put(jsonObject);
                     }
                     outputStreamWriter.write("HTTP/1.1 200 OK \r\n");
-                    outputStreamWriter.write("Access-Control-Allow-Origin: \\* \r\n");
+                    outputStreamWriter.write("Access-Control-Allow-Origin: * \r\n");
                     outputStreamWriter.write("Access-Control-Request-Method: GET \r\n\r\n");
                     outputStreamWriter.write(jsonArray.toString());
                     outputStreamWriter.flush();
