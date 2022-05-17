@@ -8,7 +8,6 @@ import model.Day;
 
 public class DatabaseDAO {
     private Connection connection;
-    private String SMHI_TABLE_NAME = "smhi_data";
 
     private PreparedStatement get7DaysAhead;
     private PreparedStatement getCurrent;
@@ -44,8 +43,6 @@ public class DatabaseDAO {
      */
     public List<Day> get7DaysAhead() throws SQLException {
         List<Day> days = new ArrayList<>();
-        get7DaysAhead.setString(1, SMHI_TABLE_NAME);
-        get7DaysAhead.setString(2, new Timestamp(System.currentTimeMillis()).toString());
         ResultSet resultSet = get7DaysAhead.executeQuery();
         while(resultSet.next()){
             days.add(new Day(

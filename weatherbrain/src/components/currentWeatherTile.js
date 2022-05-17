@@ -1,13 +1,9 @@
 import '../styling/components/currentweathertile.css'
-import React from 'react';
-import { useEffect, useState } from 'react';
-import coalesceNonElementChildren from 'react-native-button/coalesceNonElementChildren';
+
+import { promiseNoWeather } from '../js/promiseNoWeather';
 
 
-
-
-
-function CurrentWeatherTile() {
+function CurrentWeatherTile(props) {
     var today = new Date();
 
     return (
@@ -16,7 +12,7 @@ function CurrentWeatherTile() {
 
             <div className="content-holder-current">
                 <div className="date-current">
-                {today.getUTCFullYear() + '-' +today.getMonth()+'-'+today.getDate()+' '+today.getHours()+':'+today.getMinutes()}
+                {promiseNoWeather(props.promise,props.data,props.error) || today.getUTCFullYear() + '-' +today.getMonth()+'-'+today.getDate()+' '+today.getHours()+':'+today.getMinutes()}
                 </div>
 
                 <div>
@@ -28,13 +24,15 @@ function CurrentWeatherTile() {
                     </div>
                     <div className="temp-textfield-container">
                         <div className="temperature-holder-current">
-                            {currentWeather}°C 
+
+                        {promiseNoWeather(props.promise,props.data,props.error) || props.data.temperature} 
+
                         </div>
                         <div className="textfield">
                             <style>
                             @import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@584&display=swap');
                             </style>    
-                            <p>Today it's sunny with low probabillity for rain. </p>
+                            {promiseNoWeather(props.promise,props.data,props.error) || <p>Today it's sunny with low probabillity for rain. </p>}
                         </div>
                     </div>
                 </div>
