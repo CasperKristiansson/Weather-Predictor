@@ -1,3 +1,13 @@
+"""This file contains the class which gets the prediction
+of the future weather
+"""
+__author__ = "Casper Kristiansson"
+__copyright__ = "WeatherBrain"
+
+__maintainer__ = "Casper Kristiansson"
+__email__ = "casperkr@kth.se"
+__status__ = "Development"
+
 import numpy as np
 import datetime
 import time
@@ -40,6 +50,8 @@ class Model:
             return mean(square(y_true_slice - y_pred_slice))
 
         self.model = keras.models.load_model(file_name, custom_objects={'loss_mse_warmup': loss_mse_warmup})
+
+        print()
     
     def load_old_data(self):
         '''
@@ -206,4 +218,6 @@ if __name__ == '__main__':
 
         print(i, {'Temperature': prediction[0], 'Air Pressure': prediction[1], 'Humidity': prediction[2]}, time.time() - start_time)
 
-    result_df.to_csv(r'../Data/Upload Data/predictions.csv', index=False)
+        break
+
+    # result_df.to_csv(r'../Data/Upload Data/predictions.csv', index=False)
