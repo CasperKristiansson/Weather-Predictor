@@ -22,8 +22,8 @@ export default () => {
         </div>
         <div className="currentDetails">
           <h3>MORE DETAILS:</h3>
-          <p>Air Humidity: <bold className="textBold">42-76%</bold></p>
-          <p>Pressure: <bold className="textBold">750-800mm</bold></p>
+          <p>Air Humidity: <bold className="textBold">70-76%</bold></p>
+          <p>Pressure: <bold className="textBold">1022-1055mm</bold></p>
         </div>
         <div className="currentDay">
           {Array.from({ length: 6 }, (v, k) => k).map(day => (
