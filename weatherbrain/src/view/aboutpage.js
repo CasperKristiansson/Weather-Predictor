@@ -6,7 +6,7 @@ import sustainable from '../img/sustainable.png';
 import team from '../img/team.png';
 import testing from '../img/testing.png';
 
-export const Aboutpage = () => {
+function Aboutpage() {
     return (
         <>
             <h1>About Us</h1>
@@ -64,3 +64,4 @@ export const Aboutpage = () => {
         </>
     );
 }
+export default Aboutpage;
