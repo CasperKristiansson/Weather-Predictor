@@ -1,6 +1,6 @@
 import Navbar from './components/navbar';
 import Startpage from  './view/startpage.js';
-import {Aboutpage} from  './view/aboutpage.js';
+import Aboutpage from  './view/aboutpage.js';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import React from "react";
 import ContactForm from "./view/contactUs";
