@@ -14,24 +14,38 @@ function Chart() {
     React.useEffect(() => {
         setPromise(
             weatherSource.getSevenDayPrediction().then(data => {
-                console.log(data);
+                // console.log(data);
                 setData(data);
             }
             ).catch(error => setError(error))
         );
     }, []);
 
-    let dataX, dataY = draw(data);
+    let weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    let dataX = ['', '', '', '', '', '', '']
+    // let orderOfDays = [0, 0, 0, 0, 0, 0, 0]
+    
+    let todaysDate = new Date();
+    let todaysDayOfWeek = todaysDate.getDay();
+
+    for (let index = 0; index < 7; index++) 
+    {
+        let current = (todaysDayOfWeek + index) % 7;
+        dataX[index] = weekDays[current];  
+        // orderOfDays[index] = current;       
+    }
+
+    let dataY = draw(data, todaysDayOfWeek);
 
     const option = {
         xAxis:
         {
             type: 'category',
-            data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            data: dataX,
             axisLabel:
             {
                 color: "white",
-                borderColor: '#white',
+                borderColor: 'white',
                 itemStyle:
                 {
                     emphasis:
@@ -44,11 +58,11 @@ function Chart() {
         },
         yAxis: {
             type: 'value',
-            name: 'Temperature',
-            color: '#000033',
+            name: 'Predicted temperature (day and night average)',
+            color: 'white',
             axisLabel: {
                 color: "white",
-                borderColor: '#white',
+                borderColor: 'white',
                 formatter: '{value} °C',
                 itemStyle: {
                     emphasis: {
@@ -92,12 +106,11 @@ function Chart() {
 
 export default Chart;
 
-export function draw(data) {
+export function draw(data, dayOfWeek) {
 
-    let dataX = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     let dataY = [0, 0, 0, 0, 0, 0, 0]
     let count = [0, 0, 0, 0, 0, 0, 0]
-
+     
     if (data != null) {
 
         data.map
@@ -105,8 +118,14 @@ export function draw(data) {
                 function (opt) {
                     let s = opt.date.split(" ");
                     let d = new Date(s[0]);
-                    let day = d.getDay(); // 0 = sunday ?
-                    console.log("d = " + d + " day = " + day)
+                    let day = d.getDay(); 
+                    // console.log("d = " + d + " day = " + day)
+                    // let current = orderOfDays[day];
+                    day = (day - dayOfWeek);
+                    if (day < 0)
+                    {
+                        day += 7;
+                    }
                     dataY[day] += opt.temperature;
                     count[day]++;
                 }
@@ -117,7 +136,7 @@ export function draw(data) {
             dataY[index] = (dataY[index] / count[index]).toFixed(1);
         }
     }
-    return dataX, dataY;
+    return dataY;
 
 }
 

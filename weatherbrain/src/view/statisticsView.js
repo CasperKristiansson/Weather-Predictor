@@ -1,5 +1,13 @@
 import '../styling/pages/statisticsView.css';
 import { weatherSource } from "../js/fetch";
+import { Stats } from "../components/drawSMHIstats";
+import  Chart  from '../components/chart';
+import {averageTemperature} from "../components/SMHIstats";
+import {minTemperature} from "../components/SMHIstats";
+import {maxTemperature} from "../components/SMHIstats";
+
+
+
 import React from "react";
 //import { Graph } from "../components/plotGraph";
 
@@ -27,13 +35,15 @@ export const StatisticsView = () => {
     const [error, setError] = React.useState(null);
     React.useEffect(() => {
         setPromise(
+
+            
             weatherSource.getSevenDayPrediction().then(data => {
                 setData(data);
             }
             ).catch(error => setError(error))
         );
     },[]);
-
+    
     let res = calc(data);
 
     return ( 
@@ -43,58 +53,32 @@ export const StatisticsView = () => {
             </div>
             <div className="detailContainer">
 
-                <div className="row1">
-                    <div className="box1">
-                        <h2>This week (week number {weekNumber})</h2>
-                        <div className="statistics">
-                            Average temperature: <br></br>
-                            Lowest temperature: <br></br>
-                            Highest temperature: <br></br><br></br>
-
-                            Average humidity: <br></br>
-                            Lowest humidity: <br></br>
-                            Highest humidity:
-                        </div>
-
-                        {/* <br></br><br></br> */}
-                    </div>
-
-                    <div className="box2">
-                        <h2>Previous week (week number {weekNumber - 1})</h2>
-                        <div className="statistics">
-
-                            Average temperature: <br></br>
-                            Lowest temperature: <br></br>
-                            Highest temperature: <br></br><br></br>
-
-                            Average humidity: <br></br>
-                            Lowest humidity: <br></br>
-                            Highest humidity:
-                        </div>
-                        {/* <br></br><br></br> */}
-                    </div>
-                </div>
                 <div className="row2">
-
+                <div>
+                <Stats/>
+            </div>
                     <div className="box3">
 
-                        <h2>{nameOfMonth} {year}</h2>
+                        <h2>SMHI predictions for the next nine days</h2>
                         <div className="statistics">
 
-                            Average temperature: <br></br>
-                            Lowest temperature: <br></br>
-                            Highest temperature: <br></br><br></br>
+                                Average temperature: {res.t1.toFixed(1)}°C<br></br>
+                                Lowest temperature: {res.t2.toFixed(1)}°C<br></br>
+                                Highest temperature: {res.t3.toFixed(1)}°C<br></br><br></br>
 
-                            Average humidity: <br></br>
-                            Lowest humidity: <br></br>
-                            Highest humidity:
-                            {/* <br></br><br></br> */}
-                        </div>
+                                {/* Average air pressure: {Math.round(res.averagePredictedAirPressure)} hPa<br></br>
+                                Lowest air pressure: {Math.round(res.minAirPressure)} hPa<br></br>
+                                Highest air pressure: {Math.round(res.maxAirPressure)} hPa<br></br><br></br>
+
+                                Average humidity: {Math.round(res.averagePredictedHumidity)}%<br></br>
+                                Lowest humidity: {Math.round(res.minHumidity)}%<br></br>
+                                Highest humidity: {Math.round(res.maxHumidity)}%                    */}
+                                </div>
                         </div>
 
                         <div className="box4">
 
-                            <h2>Predictions for the next seven days</h2>
+                            <h2>Our predictions for the next nine days</h2>
                             <div className="statistics">
 
                                 Average temperature: {(res.averagePredictedTemperature).toFixed(1)}°C<br></br>
@@ -120,13 +104,26 @@ export const StatisticsView = () => {
     
 export function calc(data)
 {
+    console.log("AVERAGE!!!! " + averageTemperature);
+    console.log("min!!!! " + minTemperature);
+    console.log("max!!!! " + maxTemperature);
+    let t_1 = 0;
+    let t_2 = 0;
+    let t_3 = 0;
+    if (typeof averageTemperature != "undefined")
+    {
+        t_1 = averageTemperature;
+        t_2 = minTemperature;
+        t_3 = maxTemperature;
+    }
+
     let count = 0;
     let totalTemperature = 0;   
     let totalAirPressure = 0;   
     let totalHumidity = 0;   
     let current = 0;
     let minTemperature2 = 99999;
-    let maxTemperature2 = 0;
+    let maxTemperature2 = -9999;
     let minAirPressure2 = 99999;
     let maxAirPressure2 = 0;
     let minHumidity2 = 99999;
@@ -197,7 +194,10 @@ export function calc(data)
     averagePredictedTemperature : totalTemperature/count,
     averagePredictedAirPressure : totalAirPressure/count,
     averagePredictedHumidity : totalHumidity/count,
+    t1 : t_1,
+    t2 : t_2,
+    t3 : t_3,
+
     }
     return ret;
 }
-
