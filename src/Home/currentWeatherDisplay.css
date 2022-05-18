@@ -3,14 +3,29 @@
     display: grid;
     width: calc(100%);
     grid-template-columns: 10% 20% 20% 50%;
+    color: white;
+    padding-bottom: 20px;
+    text-align: left;
+    place-items: center;
 }
 
 .currentMinMax img {
     width: 60%;
+    padding-bottom: 20px;
+}
+
+.currentMinMax {
+    line-height: 0.5;
+    color: #C7C7C9;
+}
+
+.currentOverview {
+    top: 50%;
 }
 
 .currentOverview h3 {
     font-size: 25px;
+    margin-top: 0px;
 }
 
 .currentOverview h1 {
@@ -19,8 +34,21 @@
     color: #FDD021;
 }
 
+.currentOverview p {
+    margin-top: -45px;
+    color: #C7C7C9;
+}
+
 .currentDetails h3 {
     padding-bottom: 20px;
+}
+
+.currentDetails {
+    margin-top: -35px;
+}
+
+.currentDetails p {
+    color: #C7C7C9;
 }
 
 .currentDay {
@@ -28,8 +56,23 @@
     grid-template-columns: calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6);
     background-color: #0000003e;
     backdrop-filter: blur(3px);
+    padding: 30px 0;
+}
+
+.currentDay {
+    text-align: center;
 }
 
 .currentDay img{
     width: 30%;
+}
+
+.currentDay h4 {
+    font-size: 25px;
+    line-height: 0;
+    font-weight: 500;
+}
+
+.currentDay p {
+    color: #C7C7C9;
 }

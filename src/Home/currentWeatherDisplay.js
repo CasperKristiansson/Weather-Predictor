@@ -3,18 +3,22 @@ import './currentWeatherDisplay.css'
 
 import cloudy from './weather-icons/cloudy.png'
 
+
+const data = [6, 8, 10, 13, 16, 15]
+
 export default () => {
   return (
     <>
       <div className="currentWeatherDisplay">
         <div className="currentMinMax">
           <img src={cloudy} alt="cloudy" />
-          <p>Min: +17°</p>
-          <p>Max: +27°</p>
+          <p>Min: +6°</p>
+          <p>Max: +17°</p>
         </div>
         <div className="currentOverview">
-          <h3>Friday 27 July 15:00</h3>
+          <h3>Monday 18 May 19:00</h3>
           <h1>+22°C</h1>
+          <p>The whole day will be without rain.</p>
         </div>
         <div className="currentDetails">
           <h3>MORE DETAILS:</h3>
@@ -25,8 +29,8 @@ export default () => {
           {Array.from({ length: 6 }, (v, k) => k).map(day => (
             <div>
               <img src={cloudy} alt="cloudy" />
-              <p>+22°C</p>
-              <p>22:00</p>
+              <h4>+{data[day]}°C</h4>
+              <p>{day * 3}:00</p>
             </div>
           ))}
         </div>
