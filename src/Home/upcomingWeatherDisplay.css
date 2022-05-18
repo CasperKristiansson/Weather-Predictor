@@ -18,3 +18,7 @@
 .upcomingWeatherDisplay {
     text-align: left;
 }
+
+.upcomingWeatherDisplay h3 {
+    text-transform: uppercase;
+}
