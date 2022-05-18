@@ -1,4 +1,3 @@
-// import '../styling/components/plotGraph.css'
 import Calc2 from './SMHIstats.js';
 
 export function Stats() {

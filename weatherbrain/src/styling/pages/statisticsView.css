@@ -1,26 +1,13 @@
 .detailContainer {
     opacity: 0.8;
-    /* background-color:#ccc; */
-    /* position: fixed; */
     width: 100%;
     height: 100%;
     left: 0px;
     z-index: 1000;
-    /* overflow: auto; */
     overflow: scroll;
-    /* min-height: 100%;
-    min-width: 100%; */
-
-    /* padding-top: 10%; */
-    /* display: grid; */
-    /* justify-content: space-between; */
-    /* display: inline-flex; */
-
-
 }
 
 .statistics {
-    /* background-color: chartreuse; */
     text-align: center;
 }
 
@@ -36,25 +23,21 @@ h1 {
 }
 
 .box1 {
-    /* background-color: rgb(73, 52, 255); */
     height: 50%;
     width: 50%;
 }
 
 .box2 {
-    /* background-color: rgb(129, 82, 238); */
     height: 50%;
     width: 50%;
 }
 
 .box3 {
-    /* background-color: rgb(104, 177, 236); */
     height: 50%;
     width: 50%;
 }
 
 .box4 {
-    /* background-color: rgb(161, 217, 255); */
     height: 50%;
     width: 50%;
 }
