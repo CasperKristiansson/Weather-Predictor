@@ -19,7 +19,7 @@ function WeatherTile (props)  {
                     <div className="temperature-holder">
                         <strong>{Math.round(props.day.temperature)}°</strong>
                     </div>
-                    <div className="temperature-holder">   
+                    <div className="symbol-holder">   
                         {symbol}
                     </div>
                 </div>

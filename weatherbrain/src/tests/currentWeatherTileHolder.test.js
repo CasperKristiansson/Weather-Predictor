@@ -26,9 +26,24 @@ beforeEach(() => {
     });
   });
 
-  it("Renders weather data", () => {
-    const fakeData = {
-      
-    }
 
+  it("Renders weather data", () => {
+
+    const fakeData = [
+    {
+      airPressure: "1013.0",
+      date: "2020-01-01",
+      humidity: "68",
+      temperature: "4.22",
+    }
+  ]
+  
+
+    act(() => {
+        render(<CurrentWeatherTileHolder data={fakeData.date} />, container);
+    });
+    expect(
+      container.querySelector(".date-current").textContent
+      ).toContain("");
   });
+
