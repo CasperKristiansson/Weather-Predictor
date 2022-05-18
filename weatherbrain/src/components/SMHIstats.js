@@ -1,4 +1,3 @@
-// import '../styling/pages/statisticsView.css';
 import { weatherSource } from "../js/fetch";
 import React from "react";
 
@@ -35,7 +34,6 @@ let maxTemperature;
     (
         function (opt) 
         {
-            // console.log("TEST!!!!!" + opt.validTime)
             opt.parameters.map 
             (
                 function (opt2)
@@ -46,7 +44,6 @@ let maxTemperature;
                         let d = new Date(datum);
                         if ((d - currentDate) / (1000 * 60 * 60 * 24) <= 9)
                         {
-                        // console.log("SECOND TEST " + opt2.name + " value = " + opt2.values[0] + " datum = " + datum)
                         let current = opt2.values[0];
                         averageTemperature += current;
                         if (current < minTemperature)
