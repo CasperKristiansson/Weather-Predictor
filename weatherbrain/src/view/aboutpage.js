@@ -6,7 +6,7 @@ import sustainable from '../img/sustainable.png';
 import team from '../img/team.png';
 import testing from '../img/testing.png';
 
-function Aboutpage  ()  {
+export const Aboutpage = () => {
     return (
         <>
             <h1>About Us</h1>
@@ -15,7 +15,7 @@ function Aboutpage  ()  {
                 <h2>About the application</h2>
                 <p>
                     WeatherBrain is a web application that allows you to check the weather in Stockholm with the help of a local weatherstation and historic data from the location. 
-                    The application uses machine learing to predict the weather in the future. The goal of the application is to see how close to the actual temperature the machine learning model is.
+                    The application uses machine learing to predict the weather in the future. Before deploy the mahine learner has some training data to get more accurate results at deploy. 
                 </p>
                 <p>
                     The application is developed by a group of students at the Royal Institute of Technology in Stockholm for the course II1302, Projects and Project Methods. 
@@ -64,4 +64,3 @@ function Aboutpage  ()  {
         </>
     );
 }
-export default Aboutpage;
