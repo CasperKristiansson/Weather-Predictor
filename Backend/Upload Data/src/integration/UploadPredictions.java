@@ -5,7 +5,6 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.sql.Timestamp;
 
 import model.Day;
 
