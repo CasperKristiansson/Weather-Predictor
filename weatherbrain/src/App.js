@@ -12,6 +12,10 @@ function App() {
         <Router>
             <Navbar />
             <Routes>
+                <Route path='/*' element={<Startpage />}/>
+                <Route path='/about' element={<Aboutpage />} />
+                <Route path='/statistics' element={<StatisticsView />} />
+                <Route path='/contactus' element={<ContactForm/>} />
             </Routes>
         </Router>
     </div>

@@ -8,6 +8,7 @@ import home from '../img/home.png'
 
 const Navbar = () =>{
     return (
+        <div className="navbar">
                 <li>
                     <Link to="/">
                         <img src={home} alt="home" />
