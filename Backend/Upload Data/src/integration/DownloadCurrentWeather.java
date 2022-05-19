@@ -25,7 +25,7 @@ public class DownloadCurrentWeather {
      * @throws SQLException
      * @throws IOException
      */
-    private void connectToDB() throws SQLException, IOException {
+    public void connectToDB() throws SQLException, IOException {
         InputStream input = new FileInputStream("src/credentials/databaseCredentials.properties");
         Properties prop = new Properties();
         prop.load(input);
@@ -73,7 +73,7 @@ public class DownloadCurrentWeather {
         ArrayList<Day> dataObjects = new ArrayList<>();
         
         String query = "SELECT TOP(48) * FROM [dbo].[smhi_data] ORDER BY date DESC";
-        Statement stmt = connection.createStatement();
+        Statement stmt = this.connection.createStatement();
         ResultSet rs = stmt.executeQuery(query);
 
         while (rs.next()) {
