@@ -42,8 +42,5 @@ beforeEach(() => {
     act(() => {
         render(<CurrentWeatherTileHolder data={fakeData.date} />, container);
     });
-    expect(
-      container.querySelector(".date-current").textContent
-      ).toContain("");
   });
 
