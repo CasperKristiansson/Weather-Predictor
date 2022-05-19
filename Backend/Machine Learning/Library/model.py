@@ -218,6 +218,4 @@ if __name__ == '__main__':
 
         print(i, {'Temperature': prediction[0], 'Air Pressure': prediction[1], 'Humidity': prediction[2]}, time.time() - start_time)
 
-        break
-
-    # result_df.to_csv(r'../Data/Upload Data/predictions.csv', index=False)
+    result_df.to_csv(r'../Data/Upload Data/predictions.csv', index=False)
