@@ -9,13 +9,7 @@ import {maxTemperature} from "../components/SMHIstats";
 
 
 import React from "react";
-//import { Graph } from "../components/plotGraph";
 
-//Average
-//Humidity
-//statistics
-//Highest
-//History, last week?
 
 
 const month =
@@ -66,13 +60,6 @@ export const StatisticsView = () => {
                                 Lowest temperature: {res.t2.toFixed(1)}°C<br></br>
                                 Highest temperature: {res.t3.toFixed(1)}°C<br></br><br></br>
 
-                                {/* Average air pressure: {Math.round(res.averagePredictedAirPressure)} hPa<br></br>
-                                Lowest air pressure: {Math.round(res.minAirPressure)} hPa<br></br>
-                                Highest air pressure: {Math.round(res.maxAirPressure)} hPa<br></br><br></br>
-
-                                Average humidity: {Math.round(res.averagePredictedHumidity)}%<br></br>
-                                Lowest humidity: {Math.round(res.minHumidity)}%<br></br>
-                                Highest humidity: {Math.round(res.maxHumidity)}%                    */}
                                 </div>
                         </div>
 
@@ -135,12 +122,7 @@ export function calc(data)
     data.map
     (
         function (opt) 
-        {
-            // if (typeof opt.airPressure === "undefined")
-            // {
-            //     console.log("first " + opt.airPressure);
-            // }
-            
+        {            
             if (opt != null && !Number.isNaN(opt.temperature) && !Number.isNaN(opt.airPressure) && typeof opt.airPressure != "undefined")
             {            
             totalTemperature += opt.temperature;

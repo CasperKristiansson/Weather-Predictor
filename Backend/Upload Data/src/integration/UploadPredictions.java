@@ -5,7 +5,6 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.sql.Timestamp;
 
 import model.Day;
 
@@ -44,7 +43,7 @@ public class UploadPredictions {
      * @throws IOException
      * 
     */
-    public static ArrayList<Day> loadCSV(String fileName) throws IOException, SQLException {
+    public ArrayList<Day> loadCSV(String fileName) throws IOException, SQLException {
         ArrayList<Day> dataObjects = new ArrayList<>();
         String line = "";
         String csvSplitBy = ",";
@@ -85,7 +84,7 @@ public class UploadPredictions {
 
     public static void main(String[] args) throws SQLException, IOException, ParseException {
         UploadPredictions upload = new UploadPredictions();
-        ArrayList<Day> dataObjects = UploadPredictions.loadCSV("../Data/Upload Data/predictions.csv");
+        ArrayList<Day> dataObjects = upload.loadCSV("../Data/Upload Data/predictions.csv");
         for (Day dataObject : dataObjects) {
             System.out.println(dataObject);
         }

@@ -14,7 +14,6 @@ function Chart() {
     React.useEffect(() => {
         setPromise(
             weatherSource.getSevenDayPrediction().then(data => {
-                // console.log(data);
                 setData(data);
             }
             ).catch(error => setError(error))
@@ -23,7 +22,6 @@ function Chart() {
 
     let weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     let dataX = ['', '', '', '', '', '', '']
-    // let orderOfDays = [0, 0, 0, 0, 0, 0, 0]
     
     let todaysDate = new Date();
     let todaysDayOfWeek = todaysDate.getDay();
@@ -32,7 +30,6 @@ function Chart() {
     {
         let current = (todaysDayOfWeek + index) % 7;
         dataX[index] = weekDays[current];  
-        // orderOfDays[index] = current;       
     }
 
     let dataY = draw(data, todaysDayOfWeek);
@@ -89,7 +86,6 @@ function Chart() {
                 },
                 label:
                 {
-                    //TO DO: DECIDE IF WE SHOULD KEEP THE TEMPERATURES ABOVE THE LINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! change y axis label color??
                     show: true,
                     position: 'top',
                     color: "white",
@@ -119,8 +115,6 @@ export function draw(data, dayOfWeek) {
                     let s = opt.date.split(" ");
                     let d = new Date(s[0]);
                     let day = d.getDay(); 
-                    // console.log("d = " + d + " day = " + day)
-                    // let current = orderOfDays[day];
                     day = (day - dayOfWeek);
                     if (day < 0)
                     {
