@@ -1,12 +1,15 @@
 import './App.css';
 import React from 'react';
 import Home from './Home/home';
+import { ReactNotifications } from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 function App() {
 
   return (
     <>
       <div className="App">
+        <ReactNotifications />
         <Home />
       </div>
       <div className="displayMobile">
