@@ -12,3 +12,9 @@
     padding: 0 100px 50px 100px;
     bottom: 0;
 }
+
+@media screen and (max-width: 1400px) {
+    .weatherDisplay {
+        padding: 0 25px 50px 25px;
+    }
+}
