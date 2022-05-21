@@ -18,3 +18,18 @@
         padding: 0 25px 50px 25px;
     }
 }
+
+@media screen and (max-height: 800px) {
+    .weatherDisplay {
+        transform: scale(0.9);
+        padding: 0 25px 0px 25px;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .weatherDisplay {
+        transform: scale(0.7);
+        width: 130%;
+        left: -17.5%;
+    }
+}
