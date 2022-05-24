@@ -11,10 +11,14 @@ class ModelTest(unittest.TestCase):
         model = Model()
         model.load_model(r'saved_model/weather_model')
 
+        self.assertIsNotNone(model.model)
+
     def test_load_old_data(self):
         """Test if the old data can be loaded"""
         model = Model()
         model.load_old_data()
+
+        self.assertIsNotNone(model.df)
 
     def test_get_prediction(self):
         """Test if the prediction can be made"""
@@ -26,9 +30,6 @@ class ModelTest(unittest.TestCase):
         self.assertIsInstance(prediction[0], float)
         self.assertIsInstance(prediction[1], float)
         self.assertIsInstance(prediction[2], float)
-        self.assertNotEqual(prediction[0], None)
-        self.assertNotEqual(prediction[1], None)
-        self.assertNotEqual(prediction[2], None)
 
 
 if __name__ == '__main__':
