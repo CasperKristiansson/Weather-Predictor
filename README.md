@@ -1,7 +1,16 @@
-# WeatherBrain
-This is the Git repo for project group 8.
-* [WeatherBrain](http://weatherbrain.azurewebsites.net/)
-* [Wiki](https://github.com/CasperKristiansson/Weather-Predictor/wiki/)
+# WeatherBrain - A Weather Prediction Application
+This is the Git repository for project group 8 in the course II1302 Projects and Project Methods.
+- [WeatherBrain Website](http://weatherbrain.azurewebsites.net/)
+- [Wiki Documments](https://github.com/CasperKristiansson/Weather-Predictor/wiki/)
 
-Our goal is to create an application that can through machine learning predict upcoming weather / weather phenomenons. The application will receive its data from a simulated IoT-device that can measure certain weather parameters such as temperature and atmospheric pressure. 
-There are existing weather applications available. However, most of these do not use historical data in order to predict the most likely weather conditions. Also, this project will use its own simulation for predicting the weather unlike most other weather apps out there.
+Our goal is to create an application that can through machine learning predict upcoming weather / weather phenomenon’s. The application will receive its data from a simulated IoT-device that can measure certain weather parameters such as temperature, atmospheric pressure and humidity.
+
+The weather prediction application will be used by researchers and regular people. The application will be able to give the stakeholders insight in upcoming weather using a prediction model. We believe that the prediction model that will be created will be able to predict the upcoming weather accurately. But as we know our product won’t be able to predict the weather better than other weather stations. Because of this our goal is not to be better but rather offer a solution. That solution is that most weather websites only offer weather reports for entire cities. Our product will be able to offer precise weather data at a specific position using the IoT device. This will give the user a chance to choose a location where to track and predict the upcoming weather.
+
+## Project Navigation
+- [Website Application](https://github.com/CasperKristiansson/Weather-Predictor/tree/main/weatherbrain)
+- [Machine Learning](https://github.com/CasperKristiansson/Weather-Predictor/tree/main/Backend/Machine%20Learning)
+- [REST API](https://github.com/CasperKristiansson/Weather-Predictor/tree/main/Backend/Server)
+- [IoT Device](https://github.com/CasperKristiansson/Weather-Predictor/tree/main/Backend/pi)
+- [Data Management #1](https://github.com/CasperKristiansson/Weather-Predictor/tree/main/Backend/Upload%20Data)
+- [Data Management #2](https://github.com/CasperKristiansson/Weather-Predictor/tree/main/Backend/Machine%20Learning/notebooks)
