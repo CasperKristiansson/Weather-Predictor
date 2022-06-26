@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+}
+
+body, html {
+  height: 100%;
+}
+
+.displayMobile {
+  display: none;
+  padding: 50px;
+}
+
+@media screen and (max-width: 1000px) {
+  .App {
+    display: none;
+  }
+
+  .displayMobile {
+    display: block;
+  }
+}

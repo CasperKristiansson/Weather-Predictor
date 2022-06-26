@@ -1,0 +1,24 @@
+.upcomingWeatherDisplay {
+    position: relative;
+    display: grid;
+    width: calc(100%);
+    grid-template-columns: repeat(7, calc(100%/7));
+    color: white;
+}
+
+.upcomingWeatherDisplay img {
+    width: 25%;
+    padding-top: 15px;
+}
+
+.upcomingWeatherDisplay p {
+    color: #C7C7C9;
+}
+
+.upcomingWeatherDisplay {
+    text-align: left;
+}
+
+.upcomingWeatherDisplay h3 {
+    text-transform: uppercase;
+}
