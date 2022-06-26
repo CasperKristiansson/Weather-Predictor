@@ -1,6 +1,6 @@
 # WeatherBrain - A Weather Prediction Application
 This is the Git repository for project group 8 in the course II1302 Projects and Project Methods.
-- [WeatherBrain Website](http://weatherbrain.azurewebsites.net/)
+- [WeatherBrain Website](https://weatherbrainproject.web.app/)
 - [Wiki Documments](https://github.com/CasperKristiansson/Weather-Predictor/wiki/)
 
 Our goal is to create an application that can through machine learning predict upcoming weather / weather phenomenon’s. The application will receive its data from a simulated IoT-device that can measure certain weather parameters such as temperature, atmospheric pressure and humidity.
